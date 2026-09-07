@@ -166,10 +166,13 @@ export default function AboutPage() {
               <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-gk-red">
                 Ke Depan
               </span>
-              <p className="max-w-3xl font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black sm:text-4xl">
+              <p className="max-w-2xl font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black sm:text-4xl">
                 Kami mau bangun gerakan anak muda paling hidup di Kabupaten
-                Bekasi, yang programnya nyambung ke masalah nyata, jaringannya
-                makin luas sampai ke tiap kecamatan, dan makin banyak anak
+                Bekasi.
+              </p>
+              <p className="max-w-xl text-lg text-gk-black/70">
+                Program yang nyambung ke masalah nyata. Jaringan yang
+                makin luas sampai ke tiap kecamatan. Dan makin banyak anak
                 muda yang berani ambil peran, bukan cuma jadi penonton.
               </p>
             </div>
