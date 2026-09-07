@@ -164,6 +164,63 @@
   }
 }
 
+@keyframes gk-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes gk-pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@keyframes gk-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gk-wiggle {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+.animate-gk-float {
+  animation: gk-float 3.2s ease-in-out infinite;
+}
+
+.animate-gk-pulse-soft {
+  animation: gk-pulse-soft 2.6s ease-in-out infinite;
+}
+
+.animate-gk-spin-slow {
+  animation: gk-spin-slow 6s linear infinite;
+}
+
+.animate-gk-wiggle {
+  animation: gk-wiggle 2.4s ease-in-out infinite;
+}
+
 ::selection {
   background: var(--gk-red);
   color: var(--gk-white);

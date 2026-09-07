@@ -15,6 +15,7 @@ import {
   PlusMark,
   ColorSwatch,
 } from "@/components/home/hero-decor";
+import { ArtworkTilt } from "@/components/home/hero-artwork-frame";
 
 export function Hero() {
   return (
@@ -55,14 +56,14 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={0.24}>
-            <div className="mt-7 flex flex-col items-start gap-4">
-              <Button asChild variant="primary" size="lg">
+            <div className="mt-7 flex w-max max-w-[calc(100vw-3rem)] flex-row flex-wrap items-center gap-2.5">
+              <Button asChild variant="primary" size="sm">
                 <Link href="/join">
                   Join the Movement
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="sm">
                 <Link href="/programs">Explore Programs</Link>
               </Button>
             </div>
@@ -75,11 +76,11 @@ export function Hero() {
           transform-driven stacking context that framer-motion adds to its element. */}
       <div className="pointer-events-none absolute right-[4%] top-[6%] z-10 hidden lg:block">
         <div className="relative h-32 w-72 xl:h-36 xl:w-80">
-          <div className="absolute right-[38%] top-0 h-24 w-24 rounded-full bg-gk-mustard/85 blur-[2px] xl:h-28 xl:w-28" />
-          <BurstLines className="absolute right-[58%] top-1 h-11 w-13 xl:h-12 xl:w-14" />
-          <RingOutline className="absolute right-[8%] top-[2%] h-10 w-10 text-gk-red xl:h-12 xl:w-12" />
-          <Sparkle className="absolute right-0 top-[46%] h-7 w-7 text-gk-blue xl:h-8 xl:w-8" />
-          <PlusMark className="absolute right-[36%] bottom-0 h-5 w-5 text-gk-black/50" />
+          <div className="animate-gk-pulse-soft absolute right-[38%] top-0 h-24 w-24 rounded-full bg-gk-mustard/85 blur-[2px] xl:h-28 xl:w-28" />
+          <BurstLines className="animate-gk-wiggle absolute right-[58%] top-1 h-11 w-13 xl:h-12 xl:w-14" />
+          <RingOutline className="animate-gk-pulse-soft absolute right-[8%] top-[2%] h-10 w-10 text-gk-red xl:h-12 xl:w-12" />
+          <Sparkle className="animate-gk-spin-slow absolute right-0 top-[46%] h-7 w-7 text-gk-blue xl:h-8 xl:w-8" />
+          <PlusMark className="animate-gk-float absolute right-[36%] bottom-0 h-5 w-5 text-gk-black/50" />
           <div className="absolute right-[2%] bottom-1 h-4 w-4 rounded-full bg-gk-red" />
           <ColorSwatch className="absolute -right-2 top-[64%] h-10 w-10 xl:h-11 xl:w-11" />
           <p
@@ -119,27 +120,31 @@ export function Hero() {
 
           <RingOutline
             aria-hidden
-            className="absolute -left-3 bottom-[18%] hidden h-9 w-9 text-gk-red/70 sm:block"
+            className="animate-gk-pulse-soft absolute -left-3 bottom-[18%] hidden h-9 w-9 text-gk-red/70 sm:block"
+            style={{ animationDelay: "0.4s" }}
           />
           <RingOutline
             aria-hidden
-            className="absolute right-[10%] -top-3 hidden h-7 w-7 text-gk-mustard sm:block"
+            className="animate-gk-pulse-soft absolute right-[10%] -top-3 hidden h-7 w-7 text-gk-mustard sm:block"
+            style={{ animationDelay: "1s" }}
           />
           <Sparkle
             aria-hidden
-            className="absolute left-[6%] bottom-[4%] hidden h-6 w-6 text-gk-mustard sm:block"
+            className="animate-gk-spin-slow absolute left-[6%] bottom-[4%] hidden h-6 w-6 text-gk-mustard sm:block"
           />
           <Sparkle
             aria-hidden
-            className="absolute -left-2 top-[6%] hidden h-5 w-5 text-gk-red/80 lg:block"
+            className="animate-gk-spin-slow absolute -left-2 top-[6%] hidden h-5 w-5 text-gk-red/80 lg:block"
+            style={{ animationDirection: "reverse" }}
           />
           <PlusMark
             aria-hidden
-            className="absolute left-[30%] -top-2 hidden h-5 w-5 text-gk-black/40 lg:block"
+            className="animate-gk-float absolute left-[30%] -top-2 hidden h-5 w-5 text-gk-black/40 lg:block"
           />
           <PlusMark
             aria-hidden
-            className="absolute -left-4 top-[46%] hidden h-4 w-4 text-gk-black/30 sm:block"
+            className="animate-gk-float absolute -left-4 top-[46%] hidden h-4 w-4 text-gk-black/30 sm:block"
+            style={{ animationDelay: "0.8s" }}
           />
 
           <div
@@ -163,14 +168,16 @@ export function Hero() {
             className="absolute -left-5 top-[64%] hidden h-11 w-11 lg:block"
           />
 
-          <Image
-            src="/hero-illustration.png"
-            alt="Anak muda Garuda Keadilan Kabupaten Bekasi, kompak pakai batik merah, siap gerak bareng"
-            width={1402}
-            height={1122}
-            priority
-            className="relative z-10 h-auto w-full lg:absolute lg:bottom-0 lg:right-0 lg:h-auto lg:w-full"
-          />
+          <ArtworkTilt className="relative z-10 h-auto w-full origin-bottom lg:absolute lg:bottom-0 lg:right-0 lg:h-auto lg:w-full">
+            <Image
+              src="/hero-illustration.png"
+              alt="Anak muda Garuda Keadilan Kabupaten Bekasi, kompak pakai batik merah, siap gerak bareng"
+              width={1402}
+              height={1122}
+              priority
+              className="h-auto w-full drop-shadow-[6px_10px_0_rgba(17,17,17,0.12)]"
+            />
+          </ArtworkTilt>
         </div>
       </Reveal>
     </section>
