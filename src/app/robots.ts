@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 

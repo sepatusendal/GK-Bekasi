@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Stories",
   description:
-    "Cerita dari gerakan GK Bekasi — berita program, kisah anak muda, dampak nyata, sampai gagasan segar dari komunitas.",
+    "Cerita dari gerakan GK Bekasi, mulai berita program, kisah anak muda, dampak nyata, sampai gagasan segar dari komunitas.",
   keywords: siteConfig.keywords,
 };
 
@@ -28,7 +28,7 @@ export default function StoriesPage() {
               The Movement
             </h1>
             <p className="mt-6 max-w-xl text-base text-gk-black/70 sm:text-lg">
-              Kumpulan cerita dari lapangan — berita kegiatan, kisah anak muda
+              Kumpulan cerita dari lapangan, mulai berita kegiatan, kisah anak muda
               yang bertumbuh, dampak yang kerasa, sampai gagasan yang bikin
               mikir. Semua langsung dari gerakan GK Bekasi.
             </p>

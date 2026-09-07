@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Zap, Users, ShieldCheck, Flame } from "lucide-react";
@@ -14,11 +14,11 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Tentang GK Bekasi",
   description:
-    "Kenalan sama Garuda Keadilan Kabupaten Bekasi — kenapa kami ada, nilai yang kami pegang, dan orang-orang di balik gerakan ini.",
+    "Kenalan sama Garuda Keadilan Kabupaten Bekasi, kenapa kami ada, nilai yang kami pegang, dan orang-orang di balik gerakan ini.",
   openGraph: {
     title: "Tentang GK Bekasi",
     description:
-      "Kenalan sama Garuda Keadilan Kabupaten Bekasi — kenapa kami ada dan siapa yang gerakin.",
+      "Kenalan sama Garuda Keadilan Kabupaten Bekasi, kenapa kami ada dan siapa yang gerakin.",
     url: `${siteConfig.url}/about`,
   },
 };
@@ -40,7 +40,7 @@ const values = [
     icon: Flame,
     title: "Keberanian",
     description:
-      "Berani angkat isu, berani ambil peran, berani coba hal baru — meskipun belum ada yang pernah lakuin sebelumnya.",
+      "Berani angkat isu, berani ambil peran, berani coba hal baru, meskipun belum ada yang pernah lakuin sebelumnya.",
   },
   {
     icon: ShieldCheck,
@@ -73,7 +73,7 @@ const milestones: TimelineMilestone[] = [
     year: "2026",
     title: "Digital Movement",
     description:
-      "GK Bekasi masuk ke ranah digital lewat gkbekasi.id — biar cerita, program, dan ajakan gabung bisa dijangkau lebih banyak anak muda lagi.",
+      "GK Bekasi masuk ke ranah digital lewat gkbekasi.id, biar cerita, program, dan ajakan gabung bisa dijangkau lebih banyak anak muda lagi.",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Kami bukan organisasi yang jalan setahun sekali pas ada
-                  seremoni. GK Bekasi gerak terus — dari diskusi kecil di
+                  seremoni. GK Bekasi gerak terus, dari diskusi kecil di
                   kecamatan sampai aksi sosial yang melibatkan banyak orang.
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
               </span>
               <p className="max-w-3xl font-display text-2xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
                 Banyak potensi anak muda di Kabupaten Bekasi yang belum punya
-                ruang buat tumbuh. GK Bekasi hadir buat jadi ruang itu — tempat
+                ruang buat tumbuh. GK Bekasi hadir buat jadi ruang itu, tempat
                 belajar, bergerak, dan bikin dampak bareng-bareng.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
               </span>
               <p className="max-w-3xl font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black sm:text-4xl">
                 Kami mau bangun gerakan anak muda paling hidup di Kabupaten
-                Bekasi — yang programnya nyambung ke masalah nyata, jaringannya
+                Bekasi, yang programnya nyambung ke masalah nyata, jaringannya
                 makin luas sampai ke tiap kecamatan, dan makin banyak anak
                 muda yang berani ambil peran, bukan cuma jadi penonton.
               </p>
@@ -184,7 +184,7 @@ export default function AboutPage() {
             <SectionHeader
               eyebrow="Meet The Team"
               title="Leadership"
-              description="Orang-orang yang gerakin GK Bekasi dari balik layar — bukan struktur formal, tapi tim yang beneran turun tangan."
+              description="Orang-orang yang gerakin GK Bekasi dari balik layar. Bukan struktur formal, tapi tim yang beneran turun tangan."
             />
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

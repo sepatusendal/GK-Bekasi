@@ -1,10 +1,10 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 export const siteConfig = {
   name: "Garuda Keadilan Kabupaten Bekasi",
   shortName: "GK Bekasi",
   tagline: "GERAK BARENG. BIKIN DAMPAK.",
   description:
-    "Garuda Keadilan Kabupaten Bekasi — ruang bertumbuh, bergerak, dan berkontribusi untuk anak muda di Kabupaten Bekasi. Ikut program, event, dan gerakan sosial bareng kami.",
+    "Garuda Keadilan Kabupaten Bekasi, ruang bertumbuh, bergerak, dan berkontribusi untuk anak muda di Kabupaten Bekasi. Ikut program, event, dan gerakan sosial bareng kami.",
   url: "https://gkbekasi.id",
   keywords: [
     "Garuda Keadilan Bekasi",

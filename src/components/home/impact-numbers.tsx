@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import { Container } from "@/components/ui/container";
 import { CountUp } from "@/components/ui/count-up";
 import { Reveal } from "@/components/ui/reveal";

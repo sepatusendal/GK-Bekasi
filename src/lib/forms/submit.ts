@@ -1,7 +1,7 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 /**
  * ============================================================================
- *  TEMPORARY STUB — REPLACE BEFORE LAUNCH
+ *  TEMPORARY STUB - REPLACE BEFORE LAUNCH
  * ============================================================================
  * TODO: ganti implementasi ini dengan submit ke Google Form asli setelah
  * form Google Forms dibuat oleh tim GK Bekasi. Saat form itu sudah ada:

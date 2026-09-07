@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import { Hero } from "@/components/home/hero";
 import { ImpactNumbers } from "@/components/home/impact-numbers";
 import { WhatMovesUs } from "@/components/home/what-moves-us";

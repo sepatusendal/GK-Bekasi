@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Story } from "@/lib/types";
 
 export const stories: Story[] = [
@@ -64,7 +64,7 @@ export const stories: Story[] = [
       "Opini dari salah satu pengurus GK Bekasi soal kenapa menunggu 'siap' cuma bikin kita gak pernah mulai apa-apa.",
     content: [
       "Banyak yang mikir harus 'siap' dulu baru boleh mulai gerak. Padahal siap itu proses, bukan syarat.",
-      "Kabupaten Bekasi punya jutaan anak muda dengan energi besar — masalahnya cuma satu: ruang buat nyalurin energi itu masih terbatas.",
+      "Kabupaten Bekasi punya jutaan anak muda dengan energi besar, masalahnya cuma satu: ruang buat nyalurin energi itu masih terbatas.",
       "GK Bekasi hadir bukan buat jadi yang paling tahu, tapi buat jadi ruang belajar bareng sambil langsung praktik.",
     ],
     author: "Ketua GK Bekasi",
@@ -96,7 +96,7 @@ export const stories: Story[] = [
     title: "Belajar Desain dan Konten Gratis Lewat Kelas Kreatif Muda",
     category: "Impact",
     excerpt:
-      "Puluhan anak muda dapat kesempatan belajar desain, fotografi, dan bikin konten langsung dari praktisi lokal — gratis.",
+      "Puluhan anak muda dapat kesempatan belajar desain, fotografi, dan bikin konten langsung dari praktisi lokal, gratis.",
     content: [
       "Kelas Kreatif Muda batch terbaru diikuti 45 peserta dari berbagai latar belakang, mulai dari pelajar SMA sampai fresh graduate.",
       "Materi dibawakan langsung oleh praktisi kreatif lokal yang juga alumni program GK sebelumnya.",

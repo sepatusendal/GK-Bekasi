@@ -1,5 +1,5 @@
 "use client";
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 
 import { useEffect, useRef, useState } from "react";
 

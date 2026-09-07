@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -21,7 +21,7 @@ export function ImpactStory() {
               <p className="mt-6 max-w-md text-sm text-gk-black/70 sm:text-base">
                 Kelas Literasi di Kecamatan Cibitung mulai dari satu RW,
                 dua puluh anak. Konsisten jalan tiap minggu, dari mulut ke
-                mulut warga ikut nyebar — sekarang warga sekitar bahkan ikut
+                mulut warga ikut nyebar, sekarang warga sekitar bahkan ikut
                 jadi relawan pengajar dadakan tiap akhir pekan.
               </p>
             </Reveal>

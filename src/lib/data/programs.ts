@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Program } from "@/lib/types";
 
 export const programs: Program[] = [
@@ -25,7 +25,7 @@ export const programs: Program[] = [
     description:
       "Gerakan aksi sosial rutin: dari bantuan pendidikan, kesehatan, sampai bersih-bersih lingkungan bareng warga.",
     content: [
-      "Aksi Sosial Bekasi adalah program turun langsung ke lapangan — bukan cuma seremonial, tapi kerja bareng warga menyelesaikan masalah nyata.",
+      "Aksi Sosial Bekasi adalah program turun langsung ke lapangan, bukan cuma seremonial, tapi kerja bareng warga menyelesaikan masalah nyata.",
       "Fokus program berganti tiap bulan: kadang bantuan alat sekolah, kadang aksi bersih sungai, kadang donor darah.",
       "Semua kegiatan dikoordinasi bareng karang taruna dan RT/RW setempat supaya dampaknya berkelanjutan.",
     ],
@@ -41,7 +41,7 @@ export const programs: Program[] = [
     description:
       "Ruang ngumpul rutin buat anak muda saling kenal, tukar ide, dan cari partner buat proyek bareng.",
     content: [
-      "GK Connect adalah gathering komunitas bulanan yang santai tapi produktif — networking tanpa embel-embel formal.",
+      "GK Connect adalah gathering komunitas bulanan yang santai tapi produktif, networking tanpa embel-embel formal.",
       "Setiap sesi ada sharing dari volunteer atau mitra komunitas, dilanjut open discussion dan matchmaking proyek.",
       "Banyak proyek kolaborasi GK lahir dari obrolan santai di GK Connect.",
     ],
@@ -55,7 +55,7 @@ export const programs: Program[] = [
     title: "Kelas Kreatif Muda",
     category: "Creative",
     description:
-      "Workshop skill kreatif — desain, konten, fotografi — biar anak muda Bekasi makin siap kerja dan berkarya.",
+      "Workshop skill kreatif kayak desain, konten, dan fotografi, biar anak muda Bekasi makin siap kerja dan berkarya.",
     content: [
       "Kelas Kreatif Muda dirancang buat yang mau upgrade skill tapi gak punya akses kursus mahal.",
       "Materi dibawakan volunteer praktisi: desainer, content creator, dan fotografer lokal.",

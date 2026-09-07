@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";

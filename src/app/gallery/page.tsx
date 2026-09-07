@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Momen-momen dari kegiatan GK Bekasi — Leadership Camp, aksi sosial, kelas kreatif, sampai gathering tahunan. Klik buat lihat lebih detail.",
+    "Momen-momen dari kegiatan GK Bekasi, mulai Leadership Camp, aksi sosial, kelas kreatif, sampai gathering tahunan. Klik buat lihat lebih detail.",
   keywords: siteConfig.keywords,
 };
 
@@ -28,7 +28,7 @@ export default function GalleryPage() {
               Gerakan Kami
             </h1>
             <p className="mt-6 max-w-xl text-base text-gk-black/70 sm:text-lg">
-              Dari kelas literasi sampai gathering tahunan — ini potongan
+              Dari kelas literasi sampai gathering tahunan, ini potongan
               momen dari {galleryItems.length}+ kegiatan GK Bekasi. Klik tiap
               foto buat lihat ceritanya.
             </p>

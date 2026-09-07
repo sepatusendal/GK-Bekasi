@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
 import { Container } from "@/components/ui/container";

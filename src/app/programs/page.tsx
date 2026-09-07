@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Program",
   description:
-    "Lihat semua program GK Bekasi — dari Leadership Camp, Aksi Sosial Bekasi, sampai kelas kreatif. Pilih yang cocok, langsung gabung.",
+    "Lihat semua program GK Bekasi, mulai Leadership Camp, Aksi Sosial Bekasi, sampai kelas kreatif. Pilih yang cocok, langsung gabung.",
   keywords: siteConfig.keywords,
 };
 
@@ -29,8 +29,8 @@ export default function ProgramsPage() {
               Bekasi
             </h1>
             <p className="mt-6 max-w-xl text-base text-gk-black/70 sm:text-lg">
-              Dari asah kepemimpinan, turun aksi sosial, sampai ngumpul komunitas
-              — semua program kami dirancang buat bikin dampak nyata, bukan
+              Dari asah kepemimpinan, turun aksi sosial, sampai ngumpul komunitas,
+              semua program kami dirancang buat bikin dampak nyata, bukan
               sekadar seremonial.
             </p>
           </Reveal>

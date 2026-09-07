@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { LeadershipMember } from "@/lib/types";
 
 export const leadership: LeadershipMember[] = [

@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { EventItem } from "@/lib/types";
 
 export const events: EventItem[] = [
@@ -10,7 +10,7 @@ export const events: EventItem[] = [
     description:
       "Malam ngumpul buat semua anak muda Bekasi yang mau kenal GK lebih dekat, sambil nonton showcase program setahun terakhir.",
     about: [
-      "GK Youth Gathering adalah acara tahunan paling ditunggu — tempat komunitas, volunteer, dan mitra ngumpul bareng.",
+      "GK Youth Gathering adalah acara tahunan paling ditunggu, tempat komunitas, volunteer, dan mitra ngumpul bareng.",
       "Ada showcase dampak program, penampilan musik dari musisi lokal, dan sesi cerita dari member yang udah ngerasain langsung gerakan GK.",
     ],
     agenda: [
@@ -40,7 +40,7 @@ export const events: EventItem[] = [
     description:
       "Angkatan ke-6 Leadership Camp. 3 hari intensif belajar mimpin proyek nyata bareng mentor dan alumni GK.",
     about: [
-      "Batch 6 fokus ke tema 'Local Action, Real Impact' — peserta akan merancang rencana aksi sosial untuk desa/kelurahan asal masing-masing.",
+      "Batch 6 fokus ke tema 'Local Action, Real Impact'. Peserta akan merancang rencana aksi sosial untuk desa/kelurahan asal masing-masing.",
       "Kuota terbatas supaya proses mentoring lebih personal.",
     ],
     agenda: [
@@ -97,7 +97,7 @@ export const events: EventItem[] = [
     description:
       "Sesi ngumpul komunitas edisi ke-12, ngobrolin ide proyek kolaborasi buat kuartal berikutnya.",
     about: [
-      "GK Connect edisi ini fokus ke matchmaking proyek — bawa ide kamu dan cari partner buat eksekusi.",
+      "GK Connect edisi ini fokus ke matchmaking proyek, bawa ide kamu dan cari partner buat eksekusi.",
     ],
     agenda: [
       { time: "16.00", item: "Registrasi & santai" },

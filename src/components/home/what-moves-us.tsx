@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
@@ -9,7 +9,7 @@ const pillars = [
     number: "01",
     title: "Move",
     description:
-      "Pengembangan diri dan kepemimpinan anak muda — belajar mimpin dari proyek nyata, bukan cuma teori.",
+      "Pengembangan diri dan kepemimpinan anak muda, belajar mimpin dari proyek nyata, bukan cuma teori.",
     color: "bg-gk-red text-gk-white",
     big: true,
   },
@@ -46,7 +46,7 @@ export function WhatMovesUs() {
         <SectionHeader
           eyebrow="Kenapa Kami Ada"
           title="What Moves Us"
-          description="Empat pilar yang jadi arah gerak GK Bekasi — dari cara kami bertumbuh sampai cara kami bikin dampak."
+          description="Empat pilar yang jadi arah gerak GK Bekasi, dari cara kami bertumbuh sampai cara kami bikin dampak."
           className="mb-12"
         />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">

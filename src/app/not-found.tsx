@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -13,7 +13,7 @@ export default function NotFound() {
         Halaman ini belum bergerak ke mana-mana
       </h1>
       <p className="max-w-md text-gk-black/70">
-        Sepertinya lo nyasar. Halaman yang lo cari gak ketemu — balik dulu ke
+        Sepertinya lo nyasar. Halaman yang lo cari gak ketemu, balik dulu ke
         beranda, terus gerak dari sana.
       </p>
       <Button asChild size="lg">

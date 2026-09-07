@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Program } from "@/lib/types";

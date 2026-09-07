@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Event",
   description:
-    "Cek semua event GK Bekasi — gathering komunitas, aksi sosial, sampai leadership camp. Daftar sekarang sebelum kuota penuh.",
+    "Cek semua event GK Bekasi, mulai gathering komunitas, aksi sosial, sampai leadership camp. Daftar sekarang sebelum kuota penuh.",
   keywords: siteConfig.keywords,
 };
 

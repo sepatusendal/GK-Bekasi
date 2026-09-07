@@ -1,4 +1,4 @@
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Calendar, Clock, MapPin } from "lucide-react";

@@ -1,5 +1,5 @@
 "use client";
-// Bang Wira — github.com/sepatusendal
+// Bang Wira - github.com/sepatusendal
 
 import { useMemo, useState } from "react";
 import type { Story, StoryCategory } from "@/lib/types";
