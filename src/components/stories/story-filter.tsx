@@ -2,14 +2,16 @@
 // Bang Wira - github.com/sepatusendal
 
 import { useMemo, useState } from "react";
-import type { Story, StoryCategory } from "@/lib/types";
+import type { SanityStory } from "@/sanity/lib/types";
 import { StoryCard } from "@/components/stories/story-card";
 import { cn } from "@/lib/utils";
 
-const CATEGORIES: StoryCategory[] = ["News", "People", "Impact", "Ideas"];
+const CATEGORIES = ["News", "People", "Impact", "Ideas"] as const;
 
-export function StoryFilter({ stories }: { stories: Story[] }) {
-  const [active, setActive] = useState<StoryCategory | "Semua">("Semua");
+export function StoryFilter({ stories }: { stories: SanityStory[] }) {
+  const [active, setActive] = useState<(typeof CATEGORIES)[number] | "Semua">(
+    "Semua",
+  );
 
   const filtered = useMemo(() => {
     if (active === "Semua") return stories;

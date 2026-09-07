@@ -5,11 +5,9 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { StoryCard } from "@/components/stories/story-card";
-import { getFeaturedStories } from "@/lib/data/stories";
+import type { SanityStory } from "@/sanity/lib/types";
 
-export function StoriesTeaser() {
-  const stories = getFeaturedStories().slice(0, 3);
-
+export function StoriesTeaser({ stories }: { stories: SanityStory[] }) {
   return (
     <section className="border-t-[2.5px] border-gk-black bg-gk-white py-20 sm:py-28">
       <Container>

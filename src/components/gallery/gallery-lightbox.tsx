@@ -2,16 +2,14 @@
 // Bang Wira - github.com/sepatusendal
 
 import { useState } from "react";
+import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import type { GalleryItem } from "@/lib/types";
+import type { SanityGalleryItem } from "@/sanity/lib/types";
+import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 
-function darken(hex: string) {
-  return `color-mix(in srgb, ${hex} 60%, black)`;
-}
-
-export function GalleryLightbox({ items }: { items: GalleryItem[] }) {
+export function GalleryLightbox({ items }: { items: SanityGalleryItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const open = activeIndex !== null;
   const active = activeIndex !== null ? items[activeIndex] : null;
@@ -28,7 +26,7 @@ export function GalleryLightbox({ items }: { items: GalleryItem[] }) {
       <div className="grid auto-rows-[110px] grid-cols-2 gap-4 sm:auto-rows-[140px] sm:grid-cols-3 lg:auto-rows-[160px] lg:grid-cols-4 [grid-auto-flow:dense]">
         {items.map((item, index) => (
           <button
-            key={item.id}
+            key={item._id}
             type="button"
             onClick={() => setActiveIndex(index)}
             className={cn(
@@ -38,13 +36,16 @@ export function GalleryLightbox({ items }: { items: GalleryItem[] }) {
               item.size === "tall" && "col-span-1 row-span-2",
               item.size === "small" && "col-span-1 row-span-1",
             )}
+            style={{ backgroundColor: item.color }}
           >
-            <div
-              className="absolute inset-0 transition-transform duration-300 group-hover:scale-105"
-              style={{
-                backgroundImage: `linear-gradient(135deg, ${item.color}, ${darken(item.color)})`,
-              }}
-            />
+            {item.image ? (
+              <Image
+                src={urlFor(item.image).width(600).height(600).url()}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : null}
             <div
               aria-hidden
               className="absolute inset-0 opacity-20 mix-blend-overlay"
@@ -86,11 +87,21 @@ export function GalleryLightbox({ items }: { items: GalleryItem[] }) {
             {active ? (
               <div className="relative flex w-full max-w-3xl flex-col brutal-border brutal-shadow bg-gk-white">
                 <div
-                  className="relative flex h-64 w-full items-end p-6 sm:h-96"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, ${active.color}, ${darken(active.color)})`,
-                  }}
+                  className="relative flex h-64 w-full items-end overflow-hidden p-6 sm:h-96"
+                  style={{ backgroundColor: active.color }}
                 >
+                  {active.image ? (
+                    <Image
+                      src={urlFor(active.image).width(1200).height(800).url()}
+                      alt={active.title}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : null}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-gk-black/80 via-gk-black/10 to-transparent"
+                  />
                   <span
                     aria-hidden
                     className="pointer-events-none absolute -bottom-6 -right-4 select-none font-display text-[6rem] font-bold uppercase leading-none tracking-tight text-gk-white/15 sm:text-[9rem]"

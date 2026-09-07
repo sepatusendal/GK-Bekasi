@@ -5,11 +5,9 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { ProgramCard } from "@/components/programs/program-card";
-import { getFeaturedPrograms } from "@/lib/data/programs";
+import type { SanityProgram } from "@/sanity/lib/types";
 
-export function FeaturedPrograms() {
-  const programs = getFeaturedPrograms();
-
+export function FeaturedPrograms({ programs }: { programs: SanityProgram[] }) {
   return (
     <section className="border-t-[2.5px] border-gk-black bg-gk-white py-20 sm:py-28">
       <Container>

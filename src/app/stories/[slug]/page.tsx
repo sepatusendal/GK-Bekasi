@@ -7,18 +7,24 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import Image from "next/image";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
-import { stories, getStoryBySlug } from "@/lib/data/stories";
+import { RichText } from "@/components/ui/rich-text";
+import { getStoryBySlug, getStorySlugs } from "@/sanity/lib/fetchers";
+import { urlFor } from "@/sanity/lib/image";
 
-export function generateStaticParams() {
-  return stories.map((story) => ({ slug: story.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getStorySlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata(
   props: PageProps<"/stories/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const story = getStoryBySlug(slug);
+  const story = await getStoryBySlug(slug);
 
   if (!story) {
     return { title: "Cerita Tidak Ditemukan" };
@@ -38,7 +44,7 @@ export default async function StoryDetailPage(
   props: PageProps<"/stories/[slug]">,
 ) {
   const { slug } = await props.params;
-  const story = getStoryBySlug(slug);
+  const story = await getStoryBySlug(slug);
 
   if (!story) {
     notFound();
@@ -50,6 +56,19 @@ export default async function StoryDetailPage(
         className="relative flex min-h-[40vh] items-end overflow-hidden border-b-4 border-gk-black py-16 sm:min-h-[50vh]"
         style={{ backgroundColor: story.coverColor }}
       >
+        {story.coverImage ? (
+          <Image
+            src={urlFor(story.coverImage).width(1600).height(800).url()}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : null}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-gk-black/60 via-transparent to-transparent"
+        />
         <BatikOverlay className="text-gk-white/15" />
         <Container className="relative">
           <Badge variant="white" className="mb-5 w-fit">
@@ -84,13 +103,12 @@ export default async function StoryDetailPage(
                 {story.excerpt}
               </p>
 
-              <div className="flex flex-col gap-5 text-base leading-relaxed text-gk-black/80 sm:text-lg">
-                {story.content.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
+              <RichText
+                value={story.content}
+                className="gap-5 text-base leading-relaxed text-gk-black/80 sm:text-lg"
+              />
 
-              {story.tags.length > 0 ? (
+              {story.tags && story.tags.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2 border-t border-gk-black/10 pt-6">
                   {story.tags.map((tag) => (
                     <Badge key={tag} variant="outline">

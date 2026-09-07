@@ -1,6 +1,7 @@
 // Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Zap, Users, ShieldCheck, Flame } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +9,11 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { Timeline, type TimelineMilestone } from "@/components/about/timeline";
-import { leadership } from "@/lib/data/leadership";
+import { getLeadership } from "@/sanity/lib/fetchers";
+import { urlFor } from "@/sanity/lib/image";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Tentang GK Bekasi",
@@ -77,7 +81,9 @@ const milestones: TimelineMilestone[] = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const leadership = await getLeadership();
+
   return (
     <main className="bg-gk-bg">
       {/* Who We Are */}
@@ -197,14 +203,25 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.05}>
+              <Reveal key={member._id} delay={index * 0.05}>
                 <div className="flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm">
-                  <span
-                    className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
-                    style={{ backgroundColor: member.color }}
-                  >
-                    {member.initials}
-                  </span>
+                  {member.photo ? (
+                    <div className="relative size-16 overflow-hidden brutal-border">
+                      <Image
+                        src={urlFor(member.photo).width(128).height(128).url()}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <span
+                      className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
+                      style={{ backgroundColor: member.color }}
+                    >
+                      {member.initials}
+                    </span>
+                  )}
                   <div className="flex flex-col gap-1">
                     <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
                       {member.name}

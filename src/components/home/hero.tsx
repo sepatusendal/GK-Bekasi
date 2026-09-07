@@ -9,7 +9,6 @@ import { siteConfig } from "@/lib/site";
 import {
   DotGrid,
   BurstLines,
-  MonasSkyline,
   RingOutline,
   Sparkle,
   PlusMark,
@@ -20,8 +19,18 @@ import { ArtworkTilt } from "@/components/home/hero-artwork-frame";
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b-[2.5px] border-gk-black bg-gk-bg lg:min-h-[78vh]">
-      <div className="pointer-events-none absolute bottom-0 left-0 z-0 hidden h-14 w-[240px] opacity-80 md:block lg:h-20 lg:w-[320px]">
-        <MonasSkyline className="h-full w-full" />
+      <div className="pointer-events-none absolute -bottom-1 -left-2 z-0 hidden h-28 w-[370px] lg:block xl:h-36 xl:w-[480px]">
+        <div
+          aria-hidden
+          className="absolute -right-2 top-1 z-20 h-9 w-9 rotate-6 bg-gk-red brutal-border xl:-right-3 xl:h-12 xl:w-12"
+        />
+        <Image
+          src="/gedungjuang.png"
+          alt="Ilustrasi Gedung Juang Bekasi"
+          width={1536}
+          height={1024}
+          className="relative z-10 h-full w-full object-contain object-left-bottom"
+        />
       </div>
 
       {/* Text block: normal flow, top-left, kept clear of the artwork zone at all times */}

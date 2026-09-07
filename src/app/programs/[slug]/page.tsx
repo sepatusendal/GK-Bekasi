@@ -8,17 +8,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
-import { programs, getProgramBySlug } from "@/lib/data/programs";
+import { RichText } from "@/components/ui/rich-text";
+import { getProgramBySlug, getProgramSlugs } from "@/sanity/lib/fetchers";
+import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
 
-export function generateStaticParams() {
-  return programs.map((program) => ({ slug: program.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getProgramSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata(
   props: PageProps<"/programs/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const program = getProgramBySlug(slug);
+  const program = await getProgramBySlug(slug);
 
   if (!program) {
     return { title: "Program Tidak Ditemukan" };
@@ -38,7 +44,7 @@ export default async function ProgramDetailPage(
   props: PageProps<"/programs/[slug]">,
 ) {
   const { slug } = await props.params;
-  const program = getProgramBySlug(slug);
+  const program = await getProgramBySlug(slug);
 
   if (!program) {
     notFound();
@@ -50,6 +56,19 @@ export default async function ProgramDetailPage(
         className="relative flex min-h-[40vh] items-end overflow-hidden border-b-4 border-gk-black py-16 sm:min-h-[50vh]"
         style={{ backgroundColor: program.coverColor }}
       >
+        {program.coverImage ? (
+          <Image
+            src={urlFor(program.coverImage).width(1600).height(800).url()}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : null}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-gk-black/60 via-transparent to-transparent"
+        />
         <BatikOverlay className="text-gk-white/15" />
         <Container className="relative">
           <Badge variant="white" className="mb-5 w-fit">
@@ -68,11 +87,10 @@ export default async function ProgramDetailPage(
               <p className="text-lg font-bold leading-relaxed text-gk-black sm:text-xl">
                 {program.description}
               </p>
-              <div className="flex flex-col gap-4 text-base leading-relaxed text-gk-black/80">
-                {program.content.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
+              <RichText
+                value={program.content}
+                className="text-base leading-relaxed text-gk-black/80"
+              />
             </Reveal>
 
             <Reveal delay={0.1}>

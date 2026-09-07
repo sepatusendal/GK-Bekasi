@@ -1,10 +1,12 @@
 // Bang Wira - github.com/sepatusendal
 import Link from "next/link";
-import type { Story } from "@/lib/types";
+import Image from "next/image";
+import type { SanityStory } from "@/sanity/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
+import { urlFor } from "@/sanity/lib/image";
 
-export function StoryCard({ story }: { story: Story }) {
+export function StoryCard({ story }: { story: SanityStory }) {
   return (
     <Link
       href={`/stories/${story.slug}`}
@@ -14,6 +16,14 @@ export function StoryCard({ story }: { story: Story }) {
         className="relative h-44 w-full overflow-hidden"
         style={{ backgroundColor: story.coverColor }}
       >
+        {story.coverImage ? (
+          <Image
+            src={urlFor(story.coverImage).width(640).height(360).url()}
+            alt=""
+            fill
+            className="object-cover"
+          />
+        ) : null}
         <BatikOverlay className="text-gk-white/25" />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">

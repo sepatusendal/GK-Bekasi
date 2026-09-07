@@ -6,18 +6,24 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import Image from "next/image";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
-import { events, getEventBySlug } from "@/lib/data/events";
+import { RichText } from "@/components/ui/rich-text";
+import { getEventBySlug, getEventSlugs } from "@/sanity/lib/fetchers";
+import { urlFor } from "@/sanity/lib/image";
 
-export function generateStaticParams() {
-  return events.map((event) => ({ slug: event.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getEventSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata(
   props: PageProps<"/events/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
 
   if (!event) {
     return { title: "Event Tidak Ditemukan" };
@@ -37,7 +43,7 @@ export default async function EventDetailPage(
   props: PageProps<"/events/[slug]">,
 ) {
   const { slug } = await props.params;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
 
   if (!event) {
     notFound();
@@ -55,6 +61,19 @@ export default async function EventDetailPage(
         className="relative flex min-h-[40vh] items-end overflow-hidden border-b-4 border-gk-black py-16 sm:min-h-[50vh]"
         style={{ backgroundColor: event.coverColor }}
       >
+        {event.coverImage ? (
+          <Image
+            src={urlFor(event.coverImage).width(1600).height(800).url()}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        ) : null}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-gk-black/60 via-transparent to-transparent"
+        />
         <BatikOverlay className="text-gk-white/15" />
         <Container className="relative">
           <Badge variant="white" className="mb-5 w-fit">
@@ -99,11 +118,10 @@ export default async function EventDetailPage(
                 <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-gk-black">
                   Tentang Event Ini
                 </h2>
-                <div className="flex flex-col gap-4 text-base leading-relaxed text-gk-black/80">
-                  {event.about.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                </div>
+                <RichText
+                  value={event.about}
+                  className="text-base leading-relaxed text-gk-black/80"
+                />
               </div>
 
               <div className="flex flex-col gap-4">
@@ -111,7 +129,7 @@ export default async function EventDetailPage(
                   Agenda
                 </h2>
                 <ol className="flex flex-col">
-                  {event.agenda.map((slot, index) => (
+                  {(event.agenda ?? []).map((slot, index) => (
                     <li
                       key={index}
                       className="flex gap-5 border-l-2 border-gk-black/15 py-3 pl-5 first:pt-0 last:pb-0"

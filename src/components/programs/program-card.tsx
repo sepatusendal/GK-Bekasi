@@ -1,15 +1,17 @@
 // Bang Wira - github.com/sepatusendal
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import type { Program } from "@/lib/types";
+import type { SanityProgram } from "@/sanity/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
+import { urlFor } from "@/sanity/lib/image";
 
 export function ProgramCard({
   program,
   index,
 }: {
-  program: Program;
+  program: SanityProgram;
   index?: number;
 }) {
   return (
@@ -21,6 +23,14 @@ export function ProgramCard({
         className="relative flex h-40 items-end justify-between overflow-hidden p-5"
         style={{ backgroundColor: program.coverColor }}
       >
+        {program.coverImage ? (
+          <Image
+            src={urlFor(program.coverImage).width(500).height(320).url()}
+            alt=""
+            fill
+            className="object-cover"
+          />
+        ) : null}
         <BatikOverlay className="text-gk-white/25" />
         {typeof index === "number" ? (
           <span className="font-display text-4xl font-bold text-gk-white/90">

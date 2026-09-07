@@ -6,11 +6,9 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { EventCard } from "@/components/events/event-card";
-import { getUpcomingEvents } from "@/lib/data/events";
+import type { SanityEvent } from "@/sanity/lib/types";
 
-export function UpcomingEvents() {
-  const events = getUpcomingEvents().slice(0, 3);
-
+export function UpcomingEvents({ events }: { events: SanityEvent[] }) {
   return (
     <section className="py-20 sm:py-28">
       <Container>

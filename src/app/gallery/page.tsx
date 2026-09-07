@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
-import { galleryItems } from "@/lib/data/gallery";
+import { getGalleryItems } from "@/sanity/lib/fetchers";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -13,7 +15,9 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
 };
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const galleryItems = await getGalleryItems();
+
   return (
     <>
       <section className="border-b border-gk-black/10 bg-gk-white py-16 sm:py-24">

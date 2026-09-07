@@ -1,17 +1,17 @@
 // Bang Wira - github.com/sepatusendal
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
-import type { EventItem } from "@/lib/types";
+import type { SanityEvent } from "@/sanity/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
 
-const statusLabel: Record<EventItem["status"], string> = {
+const statusLabel: Record<SanityEvent["status"], string> = {
   "registration-open": "Register",
   "registration-closed": "Registrasi Ditutup",
   completed: "Selesai",
 };
 
-export function EventCard({ event }: { event: EventItem }) {
+export function EventCard({ event }: { event: SanityEvent }) {
   return (
     <Link
       href={`/events/${event.slug}`}

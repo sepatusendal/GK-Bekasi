@@ -1,11 +1,15 @@
 // Bang Wira - github.com/sepatusendal
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { programs } from "@/lib/data/programs";
-import { events } from "@/lib/data/events";
-import { stories } from "@/lib/data/stories";
+import { getEventSlugs, getProgramSlugs, getStorySlugs } from "@/sanity/lib/fetchers";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Sequential, not Promise.all: concurrent client.fetch() calls hang under
+  // Next 16 + Turbopack dev (see note in sanity/lib/fetchers.ts).
+  const programSlugs = await getProgramSlugs();
+  const eventSlugs = await getEventSlugs();
+  const storySlugs = await getStorySlugs();
+
   const staticRoutes = [
     "",
     "/about",
@@ -20,18 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const programRoutes = programs.map((p) => ({
-    url: `${siteConfig.url}/programs/${p.slug}`,
+  const programRoutes = programSlugs.map((slug) => ({
+    url: `${siteConfig.url}/programs/${slug}`,
     lastModified: new Date(),
   }));
 
-  const eventRoutes = events.map((e) => ({
-    url: `${siteConfig.url}/events/${e.slug}`,
+  const eventRoutes = eventSlugs.map((slug) => ({
+    url: `${siteConfig.url}/events/${slug}`,
     lastModified: new Date(),
   }));
 
-  const storyRoutes = stories.map((s) => ({
-    url: `${siteConfig.url}/stories/${s.slug}`,
+  const storyRoutes = storySlugs.map((slug) => ({
+    url: `${siteConfig.url}/stories/${slug}`,
     lastModified: new Date(),
   }));
 

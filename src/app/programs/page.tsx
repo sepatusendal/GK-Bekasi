@@ -4,8 +4,10 @@ import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { ProgramCard } from "@/components/programs/program-card";
-import { programs } from "@/lib/data/programs";
+import { getPrograms } from "@/sanity/lib/fetchers";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Program",
@@ -14,7 +16,9 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
 };
 
-export default function ProgramsPage() {
+export default async function ProgramsPage() {
+  const programs = await getPrograms();
+
   return (
     <>
       <section className="border-b border-gk-black/10 bg-gk-white py-16 sm:py-24">

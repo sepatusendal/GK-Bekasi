@@ -7,17 +7,34 @@ import { UpcomingEvents } from "@/components/home/upcoming-events";
 import { ImpactStory } from "@/components/home/impact-story";
 import { StoriesTeaser } from "@/components/home/stories-teaser";
 import { CommunityCTA } from "@/components/home/community-cta";
+import {
+  getFeaturedPrograms,
+  getFeaturedStories,
+  getImpactMetrics,
+  getUpcomingEvents,
+} from "@/sanity/lib/fetchers";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  // Sequential, not Promise.all: concurrent client.fetch() calls hang under
+  // Next 16 + Turbopack dev (see note in sanity/lib/fetchers.ts). Fetching
+  // once here and passing data down also avoids sibling Server Components
+  // each firing their own concurrent fetch during render.
+  const impactMetrics = await getImpactMetrics();
+  const programs = await getFeaturedPrograms();
+  const events = (await getUpcomingEvents()).slice(0, 3);
+  const stories = (await getFeaturedStories()).slice(0, 3);
+
   return (
     <>
       <Hero />
-      <ImpactNumbers />
+      <ImpactNumbers metrics={impactMetrics} />
       <WhatMovesUs />
-      <FeaturedPrograms />
-      <UpcomingEvents />
+      <FeaturedPrograms programs={programs} />
+      <UpcomingEvents events={events} />
       <ImpactStory />
-      <StoriesTeaser />
+      <StoriesTeaser stories={stories} />
       <CommunityCTA />
     </>
   );

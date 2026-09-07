@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { StoryFilter } from "@/components/stories/story-filter";
-import { stories } from "@/lib/data/stories";
+import { getStories } from "@/sanity/lib/fetchers";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Stories",
@@ -13,7 +15,9 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
 };
 
-export default function StoriesPage() {
+export default async function StoriesPage() {
+  const stories = await getStories();
+
   return (
     <>
       <section className="border-b border-gk-black/10 bg-gk-white py-16 sm:py-24">

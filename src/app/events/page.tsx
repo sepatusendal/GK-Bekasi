@@ -4,8 +4,10 @@ import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { EventCard } from "@/components/events/event-card";
-import { events, getUpcomingEvents } from "@/lib/data/events";
+import { getEvents, getUpcomingEvents } from "@/sanity/lib/fetchers";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Event",
@@ -14,8 +16,11 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
 };
 
-export default function EventsPage() {
-  const upcomingEvents = getUpcomingEvents();
+export default async function EventsPage() {
+  // Sequential, not Promise.all: concurrent client.fetch() calls hang under
+  // Next 16 + Turbopack dev (see note in sanity/lib/fetchers.ts).
+  const events = await getEvents();
+  const upcomingEvents = await getUpcomingEvents();
   const pastEvents = events.filter((event) => event.status === "completed");
 
   return (
