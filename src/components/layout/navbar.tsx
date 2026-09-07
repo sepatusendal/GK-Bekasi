@@ -1,7 +1,7 @@
 "use client";
 // Bang Wira - github.com/sepatusendal
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,19 +13,37 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 8);
+
+      if (!open) {
+        if (y > lastScrollY.current + 4 && y > 120) {
+          setHidden(true);
+        } else if (y < lastScrollY.current - 4 || y < 120) {
+          setHidden(false);
+        }
+      }
+      lastScrollY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (open) setHidden(false);
+  }, [open]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -37,10 +55,11 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-colors duration-300",
+        "sticky top-0 z-50 w-full transition-[transform,background-color,border-color] duration-300 ease-out",
         scrolled || open
           ? "bg-gk-bg/95 backdrop-blur border-b-[2.5px] border-gk-black"
           : "bg-transparent border-b-[2.5px] border-transparent",
+        hidden ? "-translate-y-full" : "translate-y-0",
       )}
     >
       <Container className="flex h-16 items-center justify-between sm:h-20">

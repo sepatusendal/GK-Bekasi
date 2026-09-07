@@ -5,6 +5,7 @@ import { Calendar, Clock, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { events, getEventBySlug } from "@/lib/data/events";
 
 export function generateStaticParams() {
@@ -91,7 +92,7 @@ export default async function EventDetailPage(
       <section className="py-16 sm:py-24">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
-            <div className="flex flex-col gap-16">
+            <Reveal className="flex flex-col gap-16">
               <div className="flex flex-col gap-4">
                 <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-gk-black">
                   Tentang Event Ini
@@ -123,8 +124,9 @@ export default async function EventDetailPage(
                   ))}
                 </ol>
               </div>
-            </div>
+            </Reveal>
 
+            <Reveal delay={0.1}>
             <aside className="flex h-fit flex-col gap-6 brutal-border brutal-shadow bg-gk-white p-6">
               <div>
                 <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
@@ -174,6 +176,7 @@ export default async function EventDetailPage(
                 )}
               </div>
             </aside>
+            </Reveal>
           </div>
         </Container>
       </section>

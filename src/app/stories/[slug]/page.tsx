@@ -6,6 +6,7 @@ import { Calendar, Clock, User } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { stories, getStoryBySlug } from "@/lib/data/stories";
 
 export function generateStaticParams() {
@@ -61,7 +62,7 @@ export default async function StoryDetailPage(
       <section className="py-16 sm:py-24">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_280px]">
-            <div className="flex flex-col gap-6">
+            <Reveal className="flex flex-col gap-6">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-b border-gk-black/10 pb-6 text-xs font-bold uppercase tracking-wide text-gk-black/60">
                 <span className="flex items-center gap-2">
                   <User size={16} className="text-gk-red" />
@@ -96,23 +97,25 @@ export default async function StoryDetailPage(
                   ))}
                 </div>
               ) : null}
-            </div>
+            </Reveal>
 
-            <aside className="flex h-fit flex-col gap-4 brutal-border brutal-shadow bg-gk-white p-6">
-              <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
-                Mau cerita kayak gini juga?
-              </p>
-              <p className="text-sm text-gk-black/70">
-                Gabung jadi bagian gerakan dan bikin cerita dampakmu sendiri
-                bareng GK Bekasi.
-              </p>
-              <Button variant="primary" size="default" asChild>
-                <Link href="/join">Gabung Sekarang</Link>
-              </Button>
-              <Button variant="outline" size="default" asChild>
-                <Link href="/stories">Lihat Cerita Lain</Link>
-              </Button>
-            </aside>
+            <Reveal delay={0.1}>
+              <aside className="flex h-fit flex-col gap-4 brutal-border brutal-shadow bg-gk-white p-6">
+                <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
+                  Mau cerita kayak gini juga?
+                </p>
+                <p className="text-sm text-gk-black/70">
+                  Gabung jadi bagian gerakan dan bikin cerita dampakmu sendiri
+                  bareng GK Bekasi.
+                </p>
+                <Button variant="primary" size="default" asChild>
+                  <Link href="/join">Gabung Sekarang</Link>
+                </Button>
+                <Button variant="outline" size="default" asChild>
+                  <Link href="/stories">Lihat Cerita Lain</Link>
+                </Button>
+              </aside>
+            </Reveal>
           </div>
         </Container>
       </section>

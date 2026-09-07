@@ -6,6 +6,7 @@ import { MapPin, Calendar } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { programs, getProgramBySlug } from "@/lib/data/programs";
 
 export function generateStaticParams() {
@@ -61,7 +62,7 @@ export default async function ProgramDetailPage(
       <section className="py-16 sm:py-24">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_320px]">
-            <div className="flex flex-col gap-6">
+            <Reveal className="flex flex-col gap-6">
               <p className="text-lg font-bold leading-relaxed text-gk-black sm:text-xl">
                 {program.description}
               </p>
@@ -70,38 +71,40 @@ export default async function ProgramDetailPage(
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <aside className="flex h-fit flex-col gap-4 brutal-border brutal-shadow bg-gk-white p-6">
-              <div className="flex items-start gap-3">
-                <MapPin size={20} className="mt-0.5 flex-shrink-0 text-gk-red" />
-                <div>
-                  <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
-                    Lokasi
-                  </p>
-                  <p className="text-sm font-bold text-gk-black">
-                    {program.location}
-                  </p>
+            <Reveal delay={0.1}>
+              <aside className="flex h-fit flex-col gap-4 brutal-border brutal-shadow bg-gk-white p-6">
+                <div className="flex items-start gap-3">
+                  <MapPin size={20} className="mt-0.5 flex-shrink-0 text-gk-red" />
+                  <div>
+                    <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
+                      Lokasi
+                    </p>
+                    <p className="text-sm font-bold text-gk-black">
+                      {program.location}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Calendar
-                  size={20}
-                  className="mt-0.5 flex-shrink-0 text-gk-red"
-                />
-                <div>
-                  <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
-                    Jadwal
-                  </p>
-                  <p className="text-sm font-bold text-gk-black">
-                    {program.date}
-                  </p>
+                <div className="flex items-start gap-3">
+                  <Calendar
+                    size={20}
+                    className="mt-0.5 flex-shrink-0 text-gk-red"
+                  />
+                  <div>
+                    <p className="font-display text-xs font-bold uppercase tracking-wide text-gk-black/60">
+                      Jadwal
+                    </p>
+                    <p className="text-sm font-bold text-gk-black">
+                      {program.date}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </aside>
+              </aside>
+            </Reveal>
           </div>
 
-          <div className="mt-16 flex flex-col items-start gap-5 border-t-4 border-gk-black pt-12 sm:items-center sm:text-center">
+          <Reveal className="mt-16 flex flex-col items-start gap-5 border-t-4 border-gk-black pt-12 sm:items-center sm:text-center">
             <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-gk-black sm:text-3xl">
               Tertarik Ikut Program Ini?
             </h2>
@@ -112,7 +115,7 @@ export default async function ProgramDetailPage(
             <Button variant="primary" size="lg" asChild>
               <Link href="/join">Gabung Program Ini</Link>
             </Button>
-          </div>
+          </Reveal>
         </Container>
       </section>
     </>
