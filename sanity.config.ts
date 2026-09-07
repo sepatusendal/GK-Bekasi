@@ -7,7 +7,7 @@ import { apiVersion, dataset, projectId } from "./src/sanity/env";
 import { schemaTypes } from "./src/sanity/schemaTypes";
 
 export default defineConfig({
-  basePath: "/studio",
+  basePath: "/atmint-gk",
   name: "gk-bekasi",
   title: "GK Bekasi CMS",
   projectId,
