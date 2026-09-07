@@ -1,6 +1,5 @@
 // Bang Wira - github.com/sepatusendal
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/ui/container";
 
@@ -41,9 +40,9 @@ export function Footer() {
   return (
     <footer className="border-t-[2.5px] border-gk-black bg-gk-black text-gk-white">
       <Container className="py-14 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr_1fr]">
-          <div>
-            <p className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <p className="font-display text-3xl font-bold uppercase leading-[0.95] tracking-tight sm:text-4xl">
               Garuda
               <br />
               Keadilan
@@ -55,12 +54,7 @@ export function Footer() {
               &ldquo;{siteConfig.slogan}&rdquo;
             </p>
 
-            <p className="mt-6 max-w-xs text-sm leading-relaxed text-gk-white/60">
-              Ruang buat anak muda Kabupaten Bekasi belajar, gerak, dan bikin
-              dampak bareng-bareng. Bukan cuma jadi penonton.
-            </p>
-
-            <div className="mt-7 flex items-center gap-2.5">
+            <div className="mt-6 flex items-center gap-3">
               {socialLinks.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -96,15 +90,11 @@ export function Footer() {
 
           <div>
             <p className="font-display text-xs font-bold uppercase tracking-widest text-gk-white/40">
-              Ngobrol Yuk
+              Kontak
             </p>
-            <ul className="mt-4 space-y-3 text-sm text-gk-white/80">
-              <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-gk-white/40" />
-                <span>{siteConfig.contact.address}</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail size={16} className="shrink-0 text-gk-white/40" />
+            <ul className="mt-4 space-y-2.5 text-sm text-gk-white/90">
+              <li>{siteConfig.contact.address}</li>
+              <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="transition-colors hover:text-gk-red"
@@ -112,8 +102,7 @@ export function Footer() {
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={16} className="shrink-0 text-gk-white/40" />
+              <li>
                 <a
                   href={siteConfig.socials.whatsapp}
                   target="_blank"
