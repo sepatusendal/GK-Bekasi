@@ -118,8 +118,8 @@ export function Hero() {
                 <Image
                   src="/hero-illustration.png"
                   alt="Anak muda Garuda Keadilan Kabupaten Bekasi, kompak pakai batik merah, siap gerak bareng"
-                  width={1930}
-                  height={815}
+                  width={1402}
+                  height={1122}
                   priority
                   className="relative z-10 h-auto w-full"
                 />
