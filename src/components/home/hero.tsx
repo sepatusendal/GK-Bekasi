@@ -56,14 +56,14 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={0.24}>
-            <div className="mt-7 flex w-max max-w-[calc(100vw-3rem)] flex-row flex-wrap items-center gap-2.5">
-              <Button asChild variant="primary" size="sm">
+            <div className="mt-7 flex w-max max-w-[calc(100vw-3rem)] flex-row flex-wrap items-center gap-4">
+              <Button asChild variant="primary" size="lg">
                 <Link href="/join">
                   Join the Movement
-                  <ArrowRight size={16} />
+                  <ArrowRight size={18} />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="sm">
+              <Button asChild variant="outline" size="lg">
                 <Link href="/programs">Explore Programs</Link>
               </Button>
             </div>
@@ -100,7 +100,7 @@ export function Hero() {
         y={40}
         className="relative z-10 mt-2 flex justify-center px-6 sm:px-10 lg:absolute lg:bottom-0 lg:right-0 lg:top-[14%] lg:mt-0 lg:block lg:justify-start lg:px-0"
       >
-        <div className="relative w-full max-w-md sm:max-w-lg lg:h-full lg:w-[58vw] lg:max-w-[900px]">
+        <div className="relative w-full max-w-md sm:max-w-lg lg:h-full lg:w-[54vw] lg:max-w-[860px]">
           <DotGrid
             aria-hidden
             className="absolute -left-4 top-[24%] hidden h-14 w-14 text-gk-black/25 sm:block"
