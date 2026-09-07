@@ -45,7 +45,7 @@ export function ContactForm() {
           Terkirim
         </Badge>
         <h3 className="font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black">
-          Pesan lo udah nyampe.
+          Pesan kamu udah nyampe.
         </h3>
         <p className="max-w-sm text-base text-gk-black/70">
           Kita bakal balas secepatnya. Makasih udah reach out ke GK Bekasi.

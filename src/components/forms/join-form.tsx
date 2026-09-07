@@ -86,7 +86,7 @@ export function JoinForm() {
           You&apos;re in. Welcome to the movement.
         </h3>
         <p className="max-w-md text-base text-gk-black/70">
-          Tim GK Bekasi bakal hubungin lo lewat WhatsApp atau email dalam
+          Tim GK Bekasi bakal hubungin kamu lewat WhatsApp atau email dalam
           beberapa hari ke depan. Siap-siap gerak bareng.
         </p>
       </div>

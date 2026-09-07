@@ -94,7 +94,7 @@ export default function AboutPage() {
               <div className="flex max-w-2xl flex-col gap-4 text-lg text-gk-black/70">
                 <p>
                   Garuda Keadilan Kabupaten Bekasi adalah ruang buat anak muda
-                  yang capek cuma jadi penonton perubahan. Di sini, lo bisa
+                  yang capek cuma jadi penonton perubahan. Di sini, kamu bisa
                   belajar, berkontribusi, dan ambil peran nyata lewat program
                   sosial, edukasi, dan komunitas yang langsung nyentuh
                   lingkungan sekitar.

@@ -13,7 +13,7 @@ export default function NotFound() {
         Halaman ini belum bergerak ke mana-mana
       </h1>
       <p className="max-w-md text-gk-black/70">
-        Sepertinya lo nyasar. Halaman yang lo cari gak ketemu, balik dulu ke
+        Sepertinya kamu nyasar. Halaman yang kamu cari gak ketemu, balik dulu ke
         beranda, terus gerak dari sana.
       </p>
       <Button asChild size="lg">

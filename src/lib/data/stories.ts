@@ -29,7 +29,7 @@ export const stories: Story[] = [
     content: [
       "Nadia (19) pertama kali kenal GK Bekasi lewat Aksi Sosial di kecamatannya. Awalnya cuma iseng ikut karena diajak teman.",
       "Setelah beberapa kali terlibat, Nadia mulai dipercaya megang koordinasi kecil, sampai akhirnya jadi salah satu koordinator volunteer termuda di GK.",
-      "\"Gue ngerasa didengar di sini. Ide gue beneran dieksekusi, bukan cuma didengerin doang,\" kata Nadia.",
+      "\"Aku ngerasa didengar di sini. Ide aku beneran dieksekusi, bukan cuma didengerin doang,\" kata Nadia.",
     ],
     author: "Tim Media GK",
     publishDate: "28 Agustus 2026",

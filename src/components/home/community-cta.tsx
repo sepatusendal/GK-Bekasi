@@ -24,7 +24,7 @@ export function CommunityCTA() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="max-w-lg text-base text-gk-white/85 sm:text-lg">
-              Jangan cuma jadi penonton. Bawa ide lo. Cari teman. Kita
+              Jangan cuma jadi penonton. Bawa ide kamu. Cari teman. Kita
               gerakkan bareng.
             </p>
           </Reveal>

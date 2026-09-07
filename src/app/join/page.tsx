@@ -36,10 +36,10 @@ export default function JoinPage() {
               Temukan ruang untuk belajar, berkontribusi, dan tumbuh bersama.
             </p>
             <p className="max-w-md text-base text-gk-black/60">
-              Nggak perlu pengalaman organisasi buat mulai. Yang lo butuh cuma
+              Nggak perlu pengalaman organisasi buat mulai. Yang kamu butuh cuma
               niat buat gerak dan mau belajar bareng anak muda lain di
               Kabupaten Bekasi. Isi form di samping, tim kami yang bakal
-              hubungin lo balik.
+              hubungin kamu balik.
             </p>
           </div>
         </Reveal>
