@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 export const siteConfig = {
   name: "Garuda Keadilan Kabupaten Bekasi",
   shortName: "GK Bekasi",

@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { programs } from "@/lib/data/programs";

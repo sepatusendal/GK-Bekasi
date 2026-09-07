@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 export type ProgramCategory =
   | "Youth Development"
   | "Social Impact"

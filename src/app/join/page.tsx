@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";

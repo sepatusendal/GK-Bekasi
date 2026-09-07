@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import { cn } from "@/lib/utils";
 
 export function SectionHeader({

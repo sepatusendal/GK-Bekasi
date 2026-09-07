@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { EventItem } from "@/lib/types";
 
 export const events: EventItem[] = [

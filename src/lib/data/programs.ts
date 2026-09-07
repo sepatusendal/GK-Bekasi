@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Program } from "@/lib/types";
 
 export const programs: Program[] = [

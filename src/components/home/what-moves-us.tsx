@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";

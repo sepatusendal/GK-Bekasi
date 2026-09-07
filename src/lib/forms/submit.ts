@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 /**
  * ============================================================================
  *  TEMPORARY STUB — REPLACE BEFORE LAUNCH

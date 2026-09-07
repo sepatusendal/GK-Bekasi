@@ -1,4 +1,5 @@
 "use client";
+// Bang Wira — github.com/sepatusendal
 
 import { useEffect, useState } from "react";
 import Link from "next/link";

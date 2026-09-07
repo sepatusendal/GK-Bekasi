@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import Link from "next/link";
 import type { Story } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";

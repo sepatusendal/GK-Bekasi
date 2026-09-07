@@ -1,4 +1,5 @@
 "use client";
+// Bang Wira — github.com/sepatusendal
 
 import { motion } from "motion/react";
 import type { ReactNode } from "react";

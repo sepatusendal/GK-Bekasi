@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Story } from "@/lib/types";
 
 export const stories: Story[] = [

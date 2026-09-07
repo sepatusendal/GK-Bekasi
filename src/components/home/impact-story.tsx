@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";

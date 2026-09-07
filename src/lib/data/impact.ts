@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { ImpactMetric } from "@/lib/types";
 
 export const impactMetrics: ImpactMetric[] = [

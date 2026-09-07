@@ -1,4 +1,5 @@
 "use client";
+// Bang Wira — github.com/sepatusendal
 
 import { useEffect, useRef, useState } from "react";
 

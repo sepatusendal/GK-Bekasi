@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";

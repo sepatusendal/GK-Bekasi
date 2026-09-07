@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Metadata } from "next";
 import { Mail, MapPin, MessageCircle, AtSign, Play } from "lucide-react";
 import { Container } from "@/components/ui/container";

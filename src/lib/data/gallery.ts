@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { GalleryItem } from "@/lib/types";
 
 export const galleryItems: GalleryItem[] = [

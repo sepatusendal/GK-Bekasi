@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Zap, Users, ShieldCheck, Flame } from "lucide-react";

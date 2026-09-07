@@ -1,3 +1,4 @@
+// Bang Wira — github.com/sepatusendal
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
