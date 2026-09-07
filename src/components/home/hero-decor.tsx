@@ -1,5 +1,5 @@
 // Bang Wira - github.com/sepatusendal
-import type { SVGProps } from "react";
+import type { HTMLAttributes, SVGProps } from "react";
 
 export function DotGrid(props: SVGProps<SVGSVGElement>) {
   return (
@@ -52,6 +52,19 @@ export function PlusMark(props: SVGProps<SVGSVGElement>) {
       <line x1="14" y1="2" x2="14" y2="26" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
       <line x1="2" y1="14" x2="26" y2="14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
     </svg>
+  );
+}
+
+export function ColorSwatch({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+  const colors = ["var(--gk-red)", "var(--gk-black)", "var(--gk-mustard)", "var(--gk-bg)"];
+  return (
+    <div className={className} {...props}>
+      <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-[3px] brutal-border bg-gk-black p-[3px]">
+        {colors.map((c, i) => (
+          <div key={i} style={{ backgroundColor: c }} />
+        ))}
+      </div>
+    </div>
   );
 }
 

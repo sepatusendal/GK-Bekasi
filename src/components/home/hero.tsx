@@ -13,6 +13,7 @@ import {
   RingOutline,
   Sparkle,
   PlusMark,
+  ColorSwatch,
 } from "@/components/home/hero-decor";
 
 export function Hero() {
@@ -80,6 +81,7 @@ export function Hero() {
           <Sparkle className="absolute right-0 top-[46%] h-7 w-7 text-gk-blue xl:h-8 xl:w-8" />
           <PlusMark className="absolute right-[36%] bottom-0 h-5 w-5 text-gk-black/50" />
           <div className="absolute right-[2%] bottom-1 h-4 w-4 rounded-full bg-gk-red" />
+          <ColorSwatch className="absolute -right-2 top-[64%] h-10 w-10 xl:h-11 xl:w-11" />
           <p
             className="absolute right-[16%] top-[8%] max-w-[8rem] -rotate-3 text-right text-lg leading-tight text-gk-black xl:text-xl"
             style={{ fontFamily: "var(--font-marker)" }}
@@ -146,11 +148,19 @@ export function Hero() {
           />
           <div
             aria-hidden
+            className="absolute bottom-[6%] right-[7%] z-0 hidden h-16 w-16 -rotate-6 bg-gk-red/90 sm:block lg:h-20 lg:w-20"
+          />
+          <div
+            aria-hidden
             className="absolute -left-3 -top-3 hidden h-8 w-8 rounded-full bg-gk-blue sm:block"
           />
           <div
             aria-hidden
             className="absolute -right-2 bottom-[14%] hidden h-6 w-6 -rotate-12 bg-gk-red sm:block"
+          />
+          <ColorSwatch
+            aria-hidden
+            className="absolute -left-5 top-[64%] hidden h-11 w-11 lg:block"
           />
 
           <Image
