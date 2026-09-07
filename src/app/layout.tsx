@@ -1,6 +1,6 @@
 // Bang Wira - github.com/sepatusendal
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope } from "next/font/google";
+import { Space_Grotesk, Manrope, Permanent_Marker } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppSticky } from "@/components/layout/whatsapp-sticky";
@@ -17,6 +17,12 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const marker = Permanent_Marker({
+  variable: "--font-marker",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="id"
-      className={`${spaceGrotesk.variable} ${manrope.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${manrope.variable} ${marker.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-gk-bg text-gk-black">
         <Navbar />
