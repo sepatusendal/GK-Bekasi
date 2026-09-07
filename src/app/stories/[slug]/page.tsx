@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { stories, getStoryBySlug } from "@/lib/data/stories";
 
 export function generateStaticParams() {
@@ -46,10 +47,11 @@ export default async function StoryDetailPage(
   return (
     <>
       <section
-        className="flex min-h-[40vh] items-end border-b-4 border-gk-black py-16 sm:min-h-[50vh]"
+        className="relative flex min-h-[40vh] items-end overflow-hidden border-b-4 border-gk-black py-16 sm:min-h-[50vh]"
         style={{ backgroundColor: story.coverColor }}
       >
-        <Container>
+        <BatikOverlay className="text-gk-white/15" />
+        <Container className="relative">
           <Badge variant="white" className="mb-5 w-fit">
             {story.category}
           </Badge>

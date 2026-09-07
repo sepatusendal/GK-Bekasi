@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Program } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
+import { BatikOverlay } from "@/components/ui/batik-pattern";
 
 export function ProgramCard({
   program,
@@ -17,9 +18,10 @@ export function ProgramCard({
       className="brutal-border brutal-shadow brutal-hover group flex flex-col bg-gk-white"
     >
       <div
-        className="flex h-40 items-end justify-between p-5"
+        className="relative flex h-40 items-end justify-between overflow-hidden p-5"
         style={{ backgroundColor: program.coverColor }}
       >
+        <BatikOverlay className="text-gk-white/25" />
         {typeof index === "number" ? (
           <span className="font-display text-4xl font-bold text-gk-white/90">
             {String(index + 1).padStart(2, "0")}

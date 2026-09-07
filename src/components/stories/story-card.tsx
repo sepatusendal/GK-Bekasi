@@ -2,6 +2,7 @@
 import Link from "next/link";
 import type { Story } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
+import { BatikOverlay } from "@/components/ui/batik-pattern";
 
 export function StoryCard({ story }: { story: Story }) {
   return (
@@ -10,9 +11,11 @@ export function StoryCard({ story }: { story: Story }) {
       className="brutal-border brutal-shadow brutal-hover group flex flex-col bg-gk-white"
     >
       <div
-        className="h-44 w-full"
+        className="relative h-44 w-full overflow-hidden"
         style={{ backgroundColor: story.coverColor }}
-      />
+      >
+        <BatikOverlay className="text-gk-white/25" />
+      </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <Badge variant="outline" className="w-fit">
           {story.category}
