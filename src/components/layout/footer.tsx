@@ -118,17 +118,19 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-gk-white/15 pt-6 text-xs text-gk-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Garuda Keadilan Kabupaten Bekasi.</p>
-          <p className="flex items-center gap-1.5">
-            <span>Made with ❤️ oleh Bang Wira -</span>
-            <a
-              href="https://github.com/sepatusendal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-gk-white/70 transition-colors hover:text-gk-red"
-            >
-              sepatusendal
-            </a>
-          </p>
+          <p>Gerak bareng, bikin dampak nyata di Kabupaten Bekasi.</p>
+        </div>
+
+        <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-gk-white/40">
+          <span>Made with ❤️ oleh Bang Wira -</span>
+          <a
+            href="https://github.com/sepatusendal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-gk-white/70 transition-colors hover:text-gk-red"
+          >
+            sepatusendal
+          </a>
         </div>
       </Container>
     </footer>
