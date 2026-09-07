@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { siteConfig } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -12,10 +13,13 @@ export function Hero() {
         <div className="grid grid-cols-1 items-end gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <Reveal>
-              <span className="mb-5 inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.25em] text-gk-red">
+              <span className="mb-2 inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.25em] text-gk-red">
                 <span className="h-2 w-2 bg-gk-red" />
                 Garuda Keadilan Kabupaten Bekasi
               </span>
+              <p className="mb-5 text-sm italic text-gk-black/45">
+                &ldquo;{siteConfig.slogan}&rdquo;
+              </p>
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="font-display text-[clamp(2.75rem,9vw,7.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-gk-black">

@@ -85,9 +85,14 @@ export default function AboutPage() {
         <Container>
           <Reveal>
             <div className="flex flex-col gap-6">
-              <Badge variant="red" className="w-fit">
-                Tentang Kami
-              </Badge>
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge variant="red" className="w-fit">
+                  Tentang Kami
+                </Badge>
+                <span className="font-display text-sm italic text-gk-black/50">
+                  &ldquo;{siteConfig.slogan}&rdquo;
+                </span>
+              </div>
               <h1 className="max-w-4xl font-display text-[clamp(2.5rem,7vw,5rem)] font-bold uppercase leading-[0.92] tracking-tight text-gk-black">
                 Kami Percaya Anak Muda Bukan Cuma Penonton.
               </h1>

@@ -3,6 +3,7 @@ export const siteConfig = {
   name: "Garuda Keadilan Kabupaten Bekasi",
   shortName: "GK Bekasi",
   tagline: "GERAK BARENG. BIKIN DAMPAK.",
+  slogan: "Pewaris Juga Perintis",
   description:
     "Garuda Keadilan Kabupaten Bekasi, ruang bertumbuh, bergerak, dan berkontribusi untuk anak muda di Kabupaten Bekasi. Ikut program, event, dan gerakan sosial bareng kami.",
   url: "https://gkbekasi.id",
@@ -31,14 +32,14 @@ export const siteConfig = {
     { label: "Contact", href: "/contact" },
   ],
   socials: {
-    instagram: "https://instagram.com/gkbekasi",
+    instagram: "https://www.instagram.com/gk.kabupatenbekasi/",
     youtube: "https://youtube.com/@gkbekasi",
     tiktok: "https://tiktok.com/@gkbekasi",
-    whatsapp: "https://wa.me/6281234567890",
+    whatsapp: "https://wa.me/6281292695096",
   },
   contact: {
     email: "halo@gkbekasi.id",
-    whatsapp: "+62 812-3456-7890",
+    whatsapp: "0812-9269-5096",
     address: "Kabupaten Bekasi, Jawa Barat, Indonesia",
   },
 };
