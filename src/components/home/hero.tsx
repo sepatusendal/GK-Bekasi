@@ -6,7 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site";
-import { DotGrid, BurstLines, MonasSkyline } from "@/components/home/hero-decor";
+import {
+  DotGrid,
+  BurstLines,
+  MonasSkyline,
+  RingOutline,
+  Sparkle,
+  PlusMark,
+} from "@/components/home/hero-decor";
 
 export function Hero() {
   return (
@@ -65,19 +72,16 @@ export function Hero() {
       {/* Decor cluster: sits as its own layer directly on the section (not inside the
           Reveal/motion wrapper below), so mix-blend-mode isn't isolated by the
           transform-driven stacking context that framer-motion adds to its element. */}
-      <div className="pointer-events-none absolute right-[4%] top-[8%] z-10 hidden lg:block">
-        <div className="relative h-28 w-64 xl:h-32 xl:w-72">
-          <div className="absolute right-[30%] top-0 h-24 w-24 rounded-full bg-gk-mustard/85 blur-[2px] xl:h-28 xl:w-28" />
-          <BurstLines className="absolute right-[46%] top-1 h-11 w-13 xl:h-12 xl:w-14" />
-          <Image
-            src="/logo-icon.jpg"
-            alt=""
-            width={900}
-            height={900}
-            className="absolute right-0 top-0 h-24 w-24 object-contain opacity-95 mix-blend-multiply xl:h-28 xl:w-28"
-          />
+      <div className="pointer-events-none absolute right-[4%] top-[6%] z-10 hidden lg:block">
+        <div className="relative h-32 w-72 xl:h-36 xl:w-80">
+          <div className="absolute right-[38%] top-0 h-24 w-24 rounded-full bg-gk-mustard/85 blur-[2px] xl:h-28 xl:w-28" />
+          <BurstLines className="absolute right-[58%] top-1 h-11 w-13 xl:h-12 xl:w-14" />
+          <RingOutline className="absolute right-[8%] top-[2%] h-10 w-10 text-gk-red xl:h-12 xl:w-12" />
+          <Sparkle className="absolute right-0 top-[46%] h-7 w-7 text-gk-blue xl:h-8 xl:w-8" />
+          <PlusMark className="absolute right-[36%] bottom-0 h-5 w-5 text-gk-black/50" />
+          <div className="absolute right-[2%] bottom-1 h-4 w-4 rounded-full bg-gk-red" />
           <p
-            className="absolute right-[24%] top-0 max-w-[8rem] -rotate-3 text-right text-lg leading-tight text-gk-black xl:text-xl"
+            className="absolute right-[16%] top-[8%] max-w-[8rem] -rotate-3 text-right text-lg leading-tight text-gk-black xl:text-xl"
             style={{ fontFamily: "var(--font-marker)" }}
           >
             Anak Muda
@@ -102,9 +106,51 @@ export function Hero() {
             aria-hidden
             className="absolute bottom-[8%] right-[2%] hidden h-12 w-12 text-gk-black/20 lg:block"
           />
+          <DotGrid
+            aria-hidden
+            className="absolute left-[16%] top-[4%] hidden h-10 w-10 text-gk-black/15 lg:block"
+          />
+          <DotGrid
+            aria-hidden
+            className="absolute -right-3 top-[38%] hidden h-12 w-12 text-gk-black/20 xl:block"
+          />
+
+          <RingOutline
+            aria-hidden
+            className="absolute -left-3 bottom-[18%] hidden h-9 w-9 text-gk-red/70 sm:block"
+          />
+          <RingOutline
+            aria-hidden
+            className="absolute right-[10%] -top-3 hidden h-7 w-7 text-gk-mustard sm:block"
+          />
+          <Sparkle
+            aria-hidden
+            className="absolute left-[6%] bottom-[4%] hidden h-6 w-6 text-gk-mustard sm:block"
+          />
+          <Sparkle
+            aria-hidden
+            className="absolute -left-2 top-[6%] hidden h-5 w-5 text-gk-red/80 lg:block"
+          />
+          <PlusMark
+            aria-hidden
+            className="absolute left-[30%] -top-2 hidden h-5 w-5 text-gk-black/40 lg:block"
+          />
+          <PlusMark
+            aria-hidden
+            className="absolute -left-4 top-[46%] hidden h-4 w-4 text-gk-black/30 sm:block"
+          />
+
           <div
             aria-hidden
             className="absolute -bottom-3 -right-3 z-20 hidden h-14 w-14 bg-gk-mustard sm:block sm:h-16 sm:w-16"
+          />
+          <div
+            aria-hidden
+            className="absolute -left-3 -top-3 hidden h-8 w-8 rounded-full bg-gk-blue sm:block"
+          />
+          <div
+            aria-hidden
+            className="absolute -right-2 bottom-[14%] hidden h-6 w-6 -rotate-12 bg-gk-red sm:block"
           />
 
           <Image

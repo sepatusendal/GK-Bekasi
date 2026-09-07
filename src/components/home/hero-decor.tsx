@@ -27,6 +27,34 @@ export function BurstLines(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function RingOutline(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden {...props}>
+      <circle cx="24" cy="24" r="19" stroke="currentColor" strokeWidth="4" />
+    </svg>
+  );
+}
+
+export function Sparkle(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden {...props}>
+      <path
+        d="M20 2 L23.5 16.5 L38 20 L23.5 23.5 L20 38 L16.5 23.5 L2 20 L16.5 16.5 Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function PlusMark(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden {...props}>
+      <line x1="14" y1="2" x2="14" y2="26" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <line x1="2" y1="14" x2="26" y2="14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function MonasSkyline(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
