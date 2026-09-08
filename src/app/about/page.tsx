@@ -12,6 +12,7 @@ import { Timeline, type TimelineMilestone } from "@/components/about/timeline";
 import { getLeadership } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
 import { siteConfig } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const revalidate = 60;
 
@@ -89,6 +90,7 @@ const milestones: TimelineMilestone[] = [
 
 export default async function AboutPage() {
   const leadership = await getLeadership();
+  const [leader, ...rest] = leadership;
 
   return (
     <main className="bg-gk-bg">
@@ -202,41 +204,103 @@ export default async function AboutPage() {
         <Container>
           <Reveal>
             <SectionHeader
-              eyebrow="Meet The Team"
-              title="Leadership"
-              description="Orang-orang yang gerakin GK Bekasi dari balik layar. Bukan struktur formal, tapi tim yang beneran turun tangan."
+              eyebrow="Struktur Pengurus"
+              title="The Squad Behind The Movement"
+              description="Bukan struktur formal yang cuma nempel di bagan. Ini barisan yang beneran turun tangan gerakin GK Kabupaten Bekasi."
             />
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {leadership.map((member, index) => (
-              <Reveal key={member._id} delay={index * 0.05}>
-                <div className="flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm">
-                  {member.photo ? (
-                    <div className="relative size-16 overflow-hidden brutal-border">
+
+          {leader ? (
+            <Reveal delay={0.05} className="mt-12">
+              <div className="relative overflow-hidden bg-gk-black p-8 brutal-border brutal-shadow sm:p-10">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[10rem] font-bold leading-none text-gk-white/5 sm:text-[14rem]"
+                >
+                  01
+                </span>
+                <div className="relative flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+                  {leader.photo ? (
+                    <div className="relative size-24 shrink-0 overflow-hidden brutal-border border-gk-white sm:size-28">
                       <Image
-                        src={urlFor(member.photo).width(128).height(128).url()}
-                        alt={member.name}
+                        src={urlFor(leader.photo).width(224).height(224).url()}
+                        alt={leader.name}
                         fill
                         className="object-cover"
                       />
                     </div>
                   ) : (
                     <span
-                      className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
-                      style={{ backgroundColor: member.color }}
+                      className="flex size-24 shrink-0 items-center justify-center border-gk-white font-display text-3xl font-bold text-gk-white brutal-border sm:size-28"
+                      style={{ backgroundColor: leader.color }}
                     >
-                      {member.initials}
+                      {leader.initials}
                     </span>
                   )}
-                  <div className="flex flex-col gap-1">
-                    <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
-                      {member.name}
+                  <div className="flex flex-col gap-3">
+                    <Badge variant="red" className="w-fit -rotate-2">
+                      Pucuk Pimpinan
+                    </Badge>
+                    <h3 className="font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-white sm:text-3xl">
+                      {leader.name}
                     </h3>
-                    <span className="font-display text-xs font-bold uppercase tracking-wide text-gk-red">
-                      {member.role}
+                    <span className="font-display text-sm font-bold uppercase tracking-wide text-gk-mustard">
+                      {leader.role}
                     </span>
+                    {leader.bio ? (
+                      <p className="max-w-xl text-sm text-gk-white/70 sm:text-base">
+                        {leader.bio}
+                      </p>
+                    ) : null}
                   </div>
-                  <p className="text-sm text-gk-black/70">{member.bio}</p>
+                </div>
+              </div>
+            </Reveal>
+          ) : null}
+
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((member, index) => (
+              <Reveal key={member._id} delay={0.1 + index * 0.05}>
+                <div
+                  className={cn(
+                    "transition-transform duration-300 hover:rotate-0",
+                    index % 2 === 0 ? "-rotate-1" : "rotate-1",
+                  )}
+                >
+                  <div className="relative flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm brutal-hover">
+                    <span
+                      aria-hidden
+                      className="absolute -left-3 -top-3 flex size-9 rotate-[-8deg] items-center justify-center bg-gk-mustard font-display text-sm font-bold text-gk-black brutal-border"
+                    >
+                      {String(index + 2).padStart(2, "0")}
+                    </span>
+                    {member.photo ? (
+                      <div className="relative size-16 overflow-hidden brutal-border">
+                        <Image
+                          src={urlFor(member.photo).width(128).height(128).url()}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <span
+                        className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
+                        style={{ backgroundColor: member.color }}
+                      >
+                        {member.initials}
+                      </span>
+                    )}
+                    <div className="flex flex-col gap-2">
+                      <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
+                        {member.name}
+                      </h3>
+                      <Badge variant="outline" className="w-fit">
+                        {member.role}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-gk-black/70">{member.bio}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
