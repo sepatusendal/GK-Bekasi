@@ -49,7 +49,8 @@ export const metadata: Metadata = {
     images: ["/logo-lockup.jpg"],
   },
   icons: {
-    icon: "/logo-icon.jpg",
+    icon: "/favicon-circle.png",
+    apple: "/favicon-circle.png",
   },
 };
 
