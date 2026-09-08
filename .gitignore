@@ -46,3 +46,6 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# local ops notes containing secrets
+WEBHOOK-SETUP.md
