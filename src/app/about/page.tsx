@@ -56,28 +56,34 @@ const values = [
 
 const milestones: TimelineMilestone[] = [
   {
-    year: "2021",
-    title: "Foundation",
+    year: "3 Januari 2025",
+    title: "Ketua Umum Baru Dilantik",
     description:
-      "GK Bekasi resmi terbentuk dari kumpulan anak muda yang gelisah sama isu sosial di lingkungan sekitar dan pengen mulai gerak, bukan cuma ngomong.",
+      "Pelantikan Ketua Umum Garuda Keadilan Kabupaten Bekasi periode baru jadi titik awal babak ini. Dari sini, kepengurusan mulai ngebut bangun ulang gerakan dari nol.",
   },
   {
-    year: "2022",
-    title: "New Generation",
+    year: "2025",
+    title: "Gerak Cepat, Bangun Jejaring",
     description:
-      "Regenerasi kepengurusan pertama berjalan. Program-program mulai ditata lebih rapi dan terstruktur, nggak jalan asal-asalan lagi.",
-  },
-  {
-    year: "2023-2024",
-    title: "Community Expansion",
-    description:
-      "Jangkauan program dan komunitas meluas ke lebih banyak kecamatan di Kabupaten Bekasi, dengan makin banyak anak muda yang ikut ambil peran.",
+      "Di tahun pertama, GK Kabupaten Bekasi hadir di Musyawarah Wilayah GK Jawa Barat, ikut Rakerda PKS Kabupaten Bekasi lewat refleksi kemanusiaan untuk korban bencana Sumatera, sampai luncurin podcast perdana sebagai ruang aman buat anak muda.",
   },
   {
     year: "2026",
     title: "Digital Movement",
     description:
-      "GK Bekasi masuk ke ranah digital lewat gkbekasi.id, biar cerita, program, dan ajakan gabung bisa dijangkau lebih banyak anak muda lagi.",
+      "GK Kabupaten Bekasi masuk ke ranah digital lewat gkbekasi.id, biar cerita, program, dan ajakan gabung bisa dijangkau lebih banyak anak muda lagi.",
+  },
+  {
+    year: "2027-2029",
+    title: "Ekspansi ke Seluruh Kecamatan",
+    description:
+      "Target perluasan jejaring dan program ke lebih banyak kecamatan di Kabupaten Bekasi, dengan makin banyak anak muda ambil peran sebagai kader dan volunteer.",
+  },
+  {
+    year: "2030",
+    title: "Visi 2030",
+    description:
+      "GK Kabupaten Bekasi jadi rumah pertumbuhan anak muda terbesar di Kabupaten Bekasi, ruang belajar, gerak, dan berkontribusi yang bisa diakses semua kalangan.",
   },
 ];
 
