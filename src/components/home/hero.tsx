@@ -63,6 +63,9 @@ export function Hero() {
               Ruang bertumbuh, bergerak, dan berkontribusi untuk anak muda
               di Kabupaten Bekasi.
             </p>
+            <p className="mt-3 font-display text-sm font-bold uppercase tracking-wide text-gk-red">
+              Setara . Selevel . Sekarya
+            </p>
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-7 flex w-max max-w-[calc(100vw-3rem)] flex-row flex-wrap items-center gap-4">
