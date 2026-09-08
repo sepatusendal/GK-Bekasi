@@ -88,9 +88,37 @@ const milestones: TimelineMilestone[] = [
   },
 ];
 
+function chunk<T>(items: T[], size: number): T[][] {
+  const rows: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    rows.push(items.slice(i, i + size));
+  }
+  return rows;
+}
+
+function TeamConnector({ branches }: { branches: number }) {
+  return (
+    <div aria-hidden className="relative mx-auto h-8 w-full sm:h-10">
+      <span className="absolute left-1/2 top-0 h-full w-[2.5px] -translate-x-1/2 bg-gk-black sm:hidden" />
+      {branches >= 2 ? (
+        <>
+          <span className="absolute left-1/2 top-0 hidden h-1/2 w-[2.5px] -translate-x-1/2 bg-gk-black sm:block" />
+          <span className="absolute left-1/4 right-1/4 top-1/2 hidden h-[2.5px] -translate-y-1/2 bg-gk-black sm:block" />
+          <span className="absolute left-1/4 top-1/2 hidden h-1/2 w-[2.5px] -translate-x-1/2 bg-gk-black sm:block" />
+          <span className="absolute left-3/4 top-1/2 hidden h-1/2 w-[2.5px] -translate-x-1/2 bg-gk-black sm:block" />
+        </>
+      ) : (
+        <span className="absolute left-1/2 top-0 hidden h-full w-[2.5px] -translate-x-1/2 bg-gk-black sm:block" />
+      )}
+    </div>
+  );
+}
+
 export default async function AboutPage() {
   const leadership = await getLeadership();
   const [leader, ...rest] = leadership;
+  const numberedRest = rest.map((member, index) => ({ ...member, number: index + 2 }));
+  const teamRows = chunk(numberedRest, 2);
 
   return (
     <main className="bg-gk-bg">
@@ -258,53 +286,58 @@ export default async function AboutPage() {
             </Reveal>
           ) : null}
 
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {rest.map((member, index) => (
-              <Reveal key={member._id} delay={0.1 + index * 0.05}>
-                <div
-                  className={cn(
-                    "transition-transform duration-300 hover:rotate-0",
-                    index % 2 === 0 ? "-rotate-1" : "rotate-1",
-                  )}
-                >
-                  <div className="relative flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm brutal-hover">
-                    <span
-                      aria-hidden
-                      className="absolute -left-3 -top-3 flex size-9 rotate-[-8deg] items-center justify-center bg-gk-mustard font-display text-sm font-bold text-gk-black brutal-border"
+          {teamRows.map((row, rowIndex) => (
+            <div key={rowIndex}>
+              {rowIndex > 0 || leader ? <TeamConnector branches={row.length} /> : null}
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {row.map((member) => (
+                  <Reveal key={member._id} delay={0.1 + member.number * 0.05}>
+                    <div
+                      className={cn(
+                        "transition-transform duration-300 hover:rotate-0",
+                        member.number % 2 === 0 ? "-rotate-1" : "rotate-1",
+                      )}
                     >
-                      {String(index + 2).padStart(2, "0")}
-                    </span>
-                    {member.photo ? (
-                      <div className="relative size-16 overflow-hidden brutal-border">
-                        <Image
-                          src={urlFor(member.photo).width(128).height(128).url()}
-                          alt={member.name}
-                          fill
-                          className="object-cover"
-                        />
+                      <div className="relative flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm brutal-hover">
+                        <span
+                          aria-hidden
+                          className="absolute -left-3 -top-3 flex size-9 rotate-[-8deg] items-center justify-center bg-gk-mustard font-display text-sm font-bold text-gk-black brutal-border"
+                        >
+                          {String(member.number).padStart(2, "0")}
+                        </span>
+                        {member.photo ? (
+                          <div className="relative size-16 overflow-hidden brutal-border">
+                            <Image
+                              src={urlFor(member.photo).width(128).height(128).url()}
+                              alt={member.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <span
+                            className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
+                            style={{ backgroundColor: member.color }}
+                          >
+                            {member.initials}
+                          </span>
+                        )}
+                        <div className="flex flex-col gap-2">
+                          <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
+                            {member.name}
+                          </h3>
+                          <Badge variant="outline" className="w-fit">
+                            {member.role}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-gk-black/70">{member.bio}</p>
                       </div>
-                    ) : (
-                      <span
-                        className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
-                        style={{ backgroundColor: member.color }}
-                      >
-                        {member.initials}
-                      </span>
-                    )}
-                    <div className="flex flex-col gap-2">
-                      <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
-                        {member.name}
-                      </h3>
-                      <Badge variant="outline" className="w-fit">
-                        {member.role}
-                      </Badge>
                     </div>
-                    <p className="text-sm text-gk-black/70">{member.bio}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          ))}
         </Container>
       </section>
 
