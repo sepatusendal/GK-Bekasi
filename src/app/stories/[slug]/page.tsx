@@ -12,6 +12,7 @@ import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { RichText } from "@/components/ui/rich-text";
 import { getStoryBySlug, getStorySlugs } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
+import { formatDate } from "@/lib/utils";
 
 export const revalidate = 60;
 
@@ -91,7 +92,7 @@ export default async function StoryDetailPage(
                 </span>
                 <span className="flex items-center gap-2">
                   <Calendar size={16} className="text-gk-red" />
-                  {story.publishDate}
+                  {formatDate(story.publishDate)}
                 </span>
                 <span className="flex items-center gap-2">
                   <Clock size={16} className="text-gk-red" />

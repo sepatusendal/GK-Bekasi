@@ -5,6 +5,7 @@ import type { SanityStory } from "@/sanity/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { urlFor } from "@/sanity/lib/image";
+import { formatDate } from "@/lib/utils";
 
 export function StoryCard({ story }: { story: SanityStory }) {
   return (
@@ -39,7 +40,7 @@ export function StoryCard({ story }: { story: SanityStory }) {
           {story.excerpt}
         </p>
         <div className="relative flex items-center justify-between border-t border-gk-black/10 pt-3 text-xs font-bold uppercase tracking-wide text-gk-black/60">
-          <span>{story.publishDate}</span>
+          <span>{formatDate(story.publishDate)}</span>
           <span>{story.readingTime} min baca</span>
         </div>
       </div>
