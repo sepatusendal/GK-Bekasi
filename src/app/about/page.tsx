@@ -157,76 +157,6 @@ export default async function AboutPage() {
         </Container>
       </section>
 
-      {/* Why We Exist */}
-      <section className="py-16 sm:py-20 lg:py-28">
-        <Container>
-          <Reveal>
-            <div className="flex flex-col gap-6 bg-gk-black p-8 text-gk-white brutal-border brutal-shadow sm:p-14">
-              <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-gk-mustard">
-                Kenapa Kami Ada
-              </span>
-              <p className="max-w-3xl font-display text-2xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
-                Banyak potensi anak muda di Kabupaten Bekasi yang belum punya
-                ruang buat tumbuh. GK Bekasi hadir buat jadi ruang itu, tempat
-                belajar, bergerak, dan bikin dampak bareng-bareng.
-              </p>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* Our Values */}
-      <section className="py-16 sm:py-20 lg:py-28">
-        <Container>
-          <Reveal>
-            <SectionHeader
-              eyebrow="Yang Kami Pegang"
-              title="Our Values"
-              description="Empat hal ini yang jadi pegangan kami tiap kali bikin program atau ambil keputusan."
-            />
-          </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {values.map((value, index) => (
-              <Reveal key={value.title} delay={index * 0.05}>
-                <div className="flex h-full flex-col gap-4 bg-gk-white p-6 brutal-border brutal-shadow-sm sm:p-8">
-                  <span className="flex size-12 items-center justify-center bg-gk-red text-gk-white brutal-border">
-                    <value.icon className="size-6" />
-                  </span>
-                  <h3 className="font-display text-xl font-bold uppercase tracking-tight text-gk-black">
-                    {value.title}
-                  </h3>
-                  <p className="text-base text-gk-black/70">
-                    {value.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Our Movement */}
-      <section className="py-16 sm:py-20 lg:py-28">
-        <Container>
-          <Reveal>
-            <div className="flex flex-col gap-6">
-              <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-gk-red">
-                Ke Depan
-              </span>
-              <p className="max-w-2xl font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black sm:text-4xl">
-                Kami mau bangun gerakan anak muda paling hidup di Kabupaten
-                Bekasi.
-              </p>
-              <p className="max-w-xl text-lg text-gk-black/70">
-                Program yang nyambung ke masalah nyata. Jaringan yang
-                makin luas sampai ke tiap kecamatan. Dan makin banyak anak
-                muda yang berani ambil peran, bukan cuma jadi penonton.
-              </p>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
       {/* Leadership */}
       <section className="py-16 sm:py-20 lg:py-28">
         <Container>
@@ -338,6 +268,76 @@ export default async function AboutPage() {
               </div>
             </div>
           ))}
+        </Container>
+      </section>
+
+      {/* Why We Exist */}
+      <section className="py-16 sm:py-20 lg:py-28">
+        <Container>
+          <Reveal>
+            <div className="flex flex-col gap-6 bg-gk-black p-8 text-gk-white brutal-border brutal-shadow sm:p-14">
+              <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-gk-mustard">
+                Kenapa Kami Ada
+              </span>
+              <p className="max-w-3xl font-display text-2xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
+                Banyak potensi anak muda di Kabupaten Bekasi yang belum punya
+                ruang buat tumbuh. GK Bekasi hadir buat jadi ruang itu, tempat
+                belajar, bergerak, dan bikin dampak bareng-bareng.
+              </p>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Our Values */}
+      <section className="py-16 sm:py-20 lg:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeader
+              eyebrow="Yang Kami Pegang"
+              title="Our Values"
+              description="Empat hal ini yang jadi pegangan kami tiap kali bikin program atau ambil keputusan."
+            />
+          </Reveal>
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {values.map((value, index) => (
+              <Reveal key={value.title} delay={index * 0.05}>
+                <div className="flex h-full flex-col gap-4 bg-gk-white p-6 brutal-border brutal-shadow-sm sm:p-8">
+                  <span className="flex size-12 items-center justify-center bg-gk-red text-gk-white brutal-border">
+                    <value.icon className="size-6" />
+                  </span>
+                  <h3 className="font-display text-xl font-bold uppercase tracking-tight text-gk-black">
+                    {value.title}
+                  </h3>
+                  <p className="text-base text-gk-black/70">
+                    {value.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Our Movement */}
+      <section className="py-16 sm:py-20 lg:py-28">
+        <Container>
+          <Reveal>
+            <div className="flex flex-col gap-6">
+              <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-gk-red">
+                Ke Depan
+              </span>
+              <p className="max-w-2xl font-display text-2xl font-bold uppercase leading-tight tracking-tight text-gk-black sm:text-4xl">
+                Kami mau bangun gerakan anak muda paling hidup di Kabupaten
+                Bekasi.
+              </p>
+              <p className="max-w-xl text-lg text-gk-black/70">
+                Program yang nyambung ke masalah nyata. Jaringan yang
+                makin luas sampai ke tiap kecamatan. Dan makin banyak anak
+                muda yang berani ambil peran, bukan cuma jadi penonton.
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
