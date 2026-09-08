@@ -31,30 +31,31 @@ export function ProgramCard({
             className="object-cover"
           />
         ) : null}
-        <BatikOverlay className="text-gk-white/25" />
+        <BatikOverlay className="text-gk-white/25 mix-blend-soft-light" />
         {typeof index === "number" ? (
-          <span className="font-display text-4xl font-bold text-gk-white/90">
+          <span className="relative font-display text-4xl font-bold text-gk-white/90">
             {String(index + 1).padStart(2, "0")}
           </span>
         ) : (
           <span />
         )}
         <ArrowUpRight
-          className="text-gk-white transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="relative text-gk-white transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
           size={28}
         />
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-5">
-        <Badge variant="outline" className="w-fit">
+      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden p-5">
+        <BatikOverlay className="text-gk-black/[0.04]" />
+        <Badge variant="outline" className="relative w-fit">
           {program.category}
         </Badge>
-        <h3 className="font-display text-xl font-bold uppercase leading-tight tracking-tight">
+        <h3 className="relative font-display text-xl font-bold uppercase leading-tight tracking-tight">
           {program.title}
         </h3>
-        <p className="line-clamp-3 flex-1 text-sm text-gk-black/70">
+        <p className="relative line-clamp-3 flex-1 text-sm text-gk-black/70">
           {program.description}
         </p>
-        <div className="flex items-center justify-between border-t border-gk-black/10 pt-3 text-xs font-bold uppercase tracking-wide text-gk-black/60">
+        <div className="relative flex items-center justify-between border-t border-gk-black/10 pt-3 text-xs font-bold uppercase tracking-wide text-gk-black/60">
           <span>{program.location}</span>
           <span>{program.date}</span>
         </div>

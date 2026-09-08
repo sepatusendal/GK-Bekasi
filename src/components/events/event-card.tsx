@@ -30,8 +30,9 @@ export function EventCard({ event }: { event: SanityEvent }) {
         </span>
       </div>
 
-      <div className="flex flex-col justify-between gap-3">
-        <div>
+      <div className="relative flex flex-col justify-between gap-3 overflow-hidden">
+        <BatikOverlay className="text-gk-black/[0.04]" />
+        <div className="relative">
           <Badge variant="outline" className="mb-2 w-fit">
             {event.category}
           </Badge>
@@ -42,7 +43,7 @@ export function EventCard({ event }: { event: SanityEvent }) {
             <MapPin size={13} /> {event.location} · {event.time}
           </p>
         </div>
-        <div className="flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-wide text-gk-red">
+        <div className="relative flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-wide text-gk-red">
           {statusLabel[event.status]}
           <ArrowRight size={16} />
         </div>
