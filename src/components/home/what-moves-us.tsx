@@ -7,33 +7,33 @@ import { cn } from "@/lib/utils";
 const pillars = [
   {
     number: "01",
-    title: "Move",
+    title: "Kepemimpinan",
     description:
-      "Pengembangan diri dan kepemimpinan anak muda, belajar mimpin dari proyek nyata, bukan cuma teori.",
+      "Nempa jiwa pemimpin yang berani mimpi besar, tapi tetap pegang teguh yang benar. Bukan soal jabatan, tapi soal keberanian ambil tanggung jawab.",
     color: "bg-gk-red text-gk-white",
     big: true,
   },
   {
     number: "02",
-    title: "Connect",
+    title: "Keadilan",
     description:
-      "Bangun komunitas dan kolaborasi antar anak muda lintas kecamatan di Kabupaten Bekasi.",
+      "Berdiri di sisi yang sering dilupakan, nggak diam liat yang timpang di depan mata. Kami percaya, perubahan dimulai dari keberpihakan yang jujur.",
     color: "bg-gk-white text-gk-black",
     big: false,
   },
   {
     number: "03",
-    title: "Serve",
+    title: "Kolaborasi",
     description:
-      "Inisiatif sosial yang langsung turun ke lapangan, kerja bareng warga menyelesaikan masalah nyata.",
+      "Rangkul tangan dari segala arah, satu langkah bareng lintas komunitas, daerah, dan generasi. Karena gerakan besar nggak pernah lahir dari jalan sendirian.",
     color: "bg-gk-white text-gk-black",
     big: false,
   },
   {
     number: "04",
-    title: "Grow",
+    title: "Keberanian",
     description:
-      "Upgrade skill, kepemimpinan, dan pengembangan diri lewat kelas, mentoring, dan praktik langsung.",
+      "Berani buka suara, berani ambil sikap, berani gerak duluan pas momennya datang. Diam itu gampang, yang susah adalah tetap melangkah.",
     color: "bg-gk-mustard text-gk-black",
     big: true,
   },
