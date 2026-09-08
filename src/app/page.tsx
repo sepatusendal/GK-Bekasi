@@ -31,10 +31,10 @@ export default async function Home() {
       <Hero />
       <ImpactNumbers metrics={impactMetrics} />
       <WhatMovesUs />
+      <StoriesTeaser stories={stories} />
       <FeaturedPrograms programs={programs} />
       <UpcomingEvents events={events} />
       <ImpactStory />
-      <StoriesTeaser stories={stories} />
       <CommunityCTA />
     </>
   );
