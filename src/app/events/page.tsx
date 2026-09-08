@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   description:
     "Cek semua event GK Bekasi, mulai gathering komunitas, aksi sosial, sampai leadership camp. Daftar sekarang sebelum kuota penuh.",
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: "/events",
+  },
+  openGraph: {
+    title: "Event GK Bekasi",
+    description:
+      "Cek semua event GK Bekasi, mulai gathering komunitas, aksi sosial, sampai leadership camp.",
+    url: `${siteConfig.url}/events`,
+  },
 };
 
 export default async function EventsPage() {

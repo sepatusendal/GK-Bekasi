@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
@@ -52,6 +55,29 @@ export const metadata: Metadata = {
     icon: "/favicon-circle.png",
     apple: "/favicon-circle.png",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo-lockup.jpg`,
+  description: siteConfig.description,
+  email: siteConfig.contact.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: siteConfig.contact.address,
+  },
+  sameAs: [
+    siteConfig.socials.instagram,
+    siteConfig.socials.youtube,
+    siteConfig.socials.tiktok,
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -61,6 +87,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${manrope.variable} ${marker.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-gk-bg text-gk-black">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

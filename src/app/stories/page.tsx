@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   description:
     "Cerita dari gerakan GK Bekasi, mulai berita program, kisah anak muda, dampak nyata, sampai gagasan segar dari komunitas.",
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: "/stories",
+  },
+  openGraph: {
+    title: "Stories GK Bekasi",
+    description:
+      "Cerita dari gerakan GK Bekasi, mulai berita program, kisah anak muda, sampai dampak nyata.",
+    url: `${siteConfig.url}/stories`,
+  },
 };
 
 export default async function StoriesPage() {

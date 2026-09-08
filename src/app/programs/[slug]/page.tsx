@@ -11,6 +11,7 @@ import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { RichText } from "@/components/ui/rich-text";
 import { getProgramBySlug, getProgramSlugs } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
+import { siteConfig } from "@/lib/site";
 import Image from "next/image";
 
 export const revalidate = 60;
@@ -33,9 +34,16 @@ export async function generateMetadata(
   return {
     title: program.title,
     description: program.description,
+    alternates: {
+      canonical: `/programs/${slug}`,
+    },
     openGraph: {
       title: program.title,
       description: program.description,
+      url: `${siteConfig.url}/programs/${slug}`,
+      images: program.coverImage
+        ? [{ url: urlFor(program.coverImage).width(1200).height(630).url() }]
+        : undefined,
     },
   };
 }

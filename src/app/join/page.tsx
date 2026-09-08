@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Join GK Bekasi",
   description:
     "Gabung Garuda Keadilan Kabupaten Bekasi. Isi formulir singkat dan jadi bagian dari gerakan anak muda yang beraksi nyata di Kabupaten Bekasi.",
+  alternates: {
+    canonical: "/join",
+  },
   openGraph: {
     title: "Join GK Bekasi",
     description:

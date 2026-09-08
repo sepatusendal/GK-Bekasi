@@ -11,6 +11,7 @@ import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { RichText } from "@/components/ui/rich-text";
 import { getEventBySlug, getEventSlugs } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
+import { siteConfig } from "@/lib/site";
 
 export const revalidate = 60;
 
@@ -32,9 +33,16 @@ export async function generateMetadata(
   return {
     title: event.title,
     description: event.description,
+    alternates: {
+      canonical: `/events/${slug}`,
+    },
     openGraph: {
       title: event.title,
       description: event.description,
+      url: `${siteConfig.url}/events/${slug}`,
+      images: event.coverImage
+        ? [{ url: urlFor(event.coverImage).width(1200).height(630).url() }]
+        : undefined,
     },
   };
 }

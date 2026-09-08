@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   description:
     "Momen-momen dari kegiatan GK Bekasi, mulai Leadership Camp, aksi sosial, kelas kreatif, sampai gathering tahunan. Klik buat lihat lebih detail.",
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Gallery GK Bekasi",
+    description:
+      "Momen-momen dari kegiatan GK Bekasi, mulai Leadership Camp, aksi sosial, sampai gathering tahunan.",
+    url: `${siteConfig.url}/gallery`,
+  },
 };
 
 export default async function GalleryPage() {

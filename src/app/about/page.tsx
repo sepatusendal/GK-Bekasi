@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Tentang GK Bekasi",
   description:
     "Kenalan sama Garuda Keadilan Kabupaten Bekasi, kenapa kami ada, nilai yang kami pegang, dan orang-orang di balik gerakan ini.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "Tentang GK Bekasi",
     description:

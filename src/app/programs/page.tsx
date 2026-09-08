@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   description:
     "Lihat semua program GK Bekasi, mulai Leadership Camp, Aksi Sosial Bekasi, sampai kelas kreatif. Pilih yang cocok, langsung gabung.",
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: "/programs",
+  },
+  openGraph: {
+    title: "Program GK Bekasi",
+    description:
+      "Lihat semua program GK Bekasi, mulai Leadership Camp, Aksi Sosial Bekasi, sampai kelas kreatif.",
+    url: `${siteConfig.url}/programs`,
+  },
 };
 
 export default async function ProgramsPage() {

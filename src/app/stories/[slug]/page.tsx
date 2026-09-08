@@ -12,6 +12,7 @@ import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { RichText } from "@/components/ui/rich-text";
 import { getStoryBySlug, getStorySlugs } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
+import { siteConfig } from "@/lib/site";
 import { formatDate } from "@/lib/utils";
 
 export const revalidate = 60;
@@ -34,9 +35,16 @@ export async function generateMetadata(
   return {
     title: story.title,
     description: story.excerpt,
+    alternates: {
+      canonical: `/stories/${slug}`,
+    },
     openGraph: {
       title: story.title,
       description: story.excerpt,
+      url: `${siteConfig.url}/stories/${slug}`,
+      images: story.coverImage
+        ? [{ url: urlFor(story.coverImage).width(1200).height(630).url() }]
+        : undefined,
     },
   };
 }

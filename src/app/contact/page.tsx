@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Contact GK Bekasi",
   description:
     "Punya pertanyaan, ide kolaborasi, atau mau ngobrol soal GK Bekasi? Hubungi kami lewat email, WhatsApp, atau media sosial.",
+  alternates: {
+    canonical: "/contact",
+  },
   openGraph: {
     title: "Contact GK Bekasi",
     description:
