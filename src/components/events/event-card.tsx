@@ -30,9 +30,8 @@ export function EventCard({ event }: { event: SanityEvent }) {
         </span>
       </div>
 
-      <div className="relative flex flex-col justify-between gap-3 overflow-hidden">
-        <BatikOverlay className="text-gk-black/10" />
-        <div className="relative">
+      <div className="flex flex-col justify-between gap-3">
+        <div>
           <Badge variant="outline" className="mb-2 w-fit">
             {event.category}
           </Badge>

@@ -46,7 +46,7 @@ export function ProgramCard({
         />
       </div>
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden p-5">
-        <BatikOverlay className="text-gk-black/10" />
+        {program.coverImage ? <BatikOverlay className="text-gk-black/10" /> : null}
         <Badge variant="outline" className="relative w-fit">
           {program.category}
         </Badge>
