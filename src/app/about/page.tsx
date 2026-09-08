@@ -173,32 +173,34 @@ export default async function AboutPage() {
 
           {leader ? (
             <Reveal delay={0.05} className="mt-12">
-              <div className="relative overflow-hidden bg-gk-black p-8 brutal-border brutal-shadow sm:p-10">
+              <div className="relative overflow-hidden bg-gk-black brutal-border brutal-shadow">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[10rem] font-bold leading-none text-gk-white/5 sm:text-[14rem]"
+                  className="pointer-events-none absolute -right-4 -top-10 z-10 select-none font-display text-[10rem] font-bold leading-none text-gk-white/5 sm:text-[14rem]"
                 >
                   01
                 </span>
-                <div className="relative flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+                <div className="relative flex flex-col sm:flex-row sm:items-stretch">
                   {leader.photo ? (
-                    <div className="relative size-24 shrink-0 overflow-hidden brutal-border border-gk-white sm:size-28">
+                    <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden border-b-[2.5px] border-gk-white sm:aspect-auto sm:w-64 sm:min-h-[320px] sm:border-b-0 sm:border-r-[2.5px]">
                       <Image
-                        src={urlFor(leader.photo).width(224).height(224).url()}
+                        src={urlFor(leader.photo).width(512).height(640).url()}
                         alt={leader.name}
                         fill
                         className="object-cover"
                       />
                     </div>
                   ) : (
-                    <span
-                      className="flex size-24 shrink-0 items-center justify-center border-gk-white font-display text-3xl font-bold text-gk-white brutal-border sm:size-28"
+                    <div
+                      className="relative flex aspect-[4/5] w-full shrink-0 items-center justify-center border-b-[2.5px] border-gk-white sm:aspect-auto sm:w-64 sm:min-h-[320px] sm:border-b-0 sm:border-r-[2.5px]"
                       style={{ backgroundColor: leader.color }}
                     >
-                      {leader.initials}
-                    </span>
+                      <span className="font-display text-7xl font-bold text-gk-white sm:text-8xl">
+                        {leader.initials}
+                      </span>
+                    </div>
                   )}
-                  <div className="flex flex-col gap-3">
+                  <div className="relative z-10 flex flex-col justify-center gap-3 p-8 sm:p-10">
                     <Badge variant="red" className="w-fit -rotate-2">
                       Pucuk Pimpinan
                     </Badge>
@@ -231,39 +233,41 @@ export default async function AboutPage() {
                         member.number % 2 === 0 ? "-rotate-1" : "rotate-1",
                       )}
                     >
-                      <div className="relative flex h-full flex-col gap-5 bg-gk-white p-6 brutal-border brutal-shadow-sm brutal-hover">
+                      <div className="relative flex h-full flex-col overflow-hidden bg-gk-white brutal-border brutal-shadow-sm brutal-hover">
                         <span
                           aria-hidden
-                          className="absolute -left-3 -top-3 flex size-9 rotate-[-8deg] items-center justify-center bg-gk-mustard font-display text-sm font-bold text-gk-black brutal-border"
+                          className="absolute -left-3 -top-3 z-10 flex size-9 rotate-[-8deg] items-center justify-center bg-gk-mustard font-display text-sm font-bold text-gk-black brutal-border"
                         >
                           {String(member.number).padStart(2, "0")}
                         </span>
                         {member.photo ? (
-                          <div className="relative size-16 overflow-hidden brutal-border">
+                          <div className="relative aspect-[4/5] w-full overflow-hidden border-b-[2.5px] border-gk-black sm:aspect-square">
                             <Image
-                              src={urlFor(member.photo).width(128).height(128).url()}
+                              src={urlFor(member.photo).width(480).height(480).url()}
                               alt={member.name}
                               fill
                               className="object-cover"
                             />
                           </div>
                         ) : (
-                          <span
-                            className="flex size-16 items-center justify-center font-display text-xl font-bold text-gk-white brutal-border"
+                          <div
+                            className="flex aspect-[4/5] w-full items-center justify-center border-b-[2.5px] border-gk-black sm:aspect-square"
                             style={{ backgroundColor: member.color }}
                           >
-                            {member.initials}
-                          </span>
+                            <span className="font-display text-5xl font-bold text-gk-white">
+                              {member.initials}
+                            </span>
+                          </div>
                         )}
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-1 flex-col gap-2 p-6">
                           <h3 className="font-display text-lg font-bold uppercase tracking-tight text-gk-black">
                             {member.name}
                           </h3>
                           <Badge variant="outline" className="w-fit">
                             {member.role}
                           </Badge>
+                          <p className="text-sm text-gk-black/70">{member.bio}</p>
                         </div>
-                        <p className="text-sm text-gk-black/70">{member.bio}</p>
                       </div>
                     </div>
                   </Reveal>
