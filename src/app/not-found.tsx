@@ -10,11 +10,11 @@ export default function NotFound() {
         404
       </span>
       <h1 className="font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl">
-        Halaman ini belum bergerak ke mana-mana
+        Nyari apaan sih banggg? salah alamat nih..
       </h1>
       <p className="max-w-md text-gk-black/70">
-        Sepertinya kamu nyasar. Halaman yang kamu cari gak ketemu, balik dulu ke
-        beranda, terus gerak dari sana.
+        Sepertinya ente nyasar. Halaman yang antum cari gak ketemu, balik dulu ke
+        beranda, terus start dari sono ya.
       </p>
       <Button asChild size="lg">
         <Link href="/">Balik ke Beranda</Link>
