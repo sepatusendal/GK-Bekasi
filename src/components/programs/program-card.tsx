@@ -30,8 +30,9 @@ export function ProgramCard({
             fill
             className="object-cover"
           />
-        ) : null}
-        <BatikOverlay className="text-gk-white/25 mix-blend-soft-light" />
+        ) : (
+          <BatikOverlay className="text-gk-white/25" />
+        )}
         {typeof index === "number" ? (
           <span className="relative font-display text-4xl font-bold text-gk-white/90">
             {String(index + 1).padStart(2, "0")}
@@ -45,7 +46,7 @@ export function ProgramCard({
         />
       </div>
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden p-5">
-        <BatikOverlay className="text-gk-black/[0.04]" />
+        <BatikOverlay className="text-gk-black/10" />
         <Badge variant="outline" className="relative w-fit">
           {program.category}
         </Badge>

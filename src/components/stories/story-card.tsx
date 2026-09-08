@@ -23,11 +23,12 @@ export function StoryCard({ story }: { story: SanityStory }) {
             fill
             className="object-cover"
           />
-        ) : null}
-        <BatikOverlay className="text-gk-white/25 mix-blend-soft-light" />
+        ) : (
+          <BatikOverlay className="text-gk-white/25" />
+        )}
       </div>
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden p-5">
-        <BatikOverlay className="text-gk-black/[0.04]" />
+        <BatikOverlay className="text-gk-black/10" />
         <Badge variant="outline" className="relative w-fit">
           {story.category}
         </Badge>
