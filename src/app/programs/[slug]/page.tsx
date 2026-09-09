@@ -67,7 +67,7 @@ export default async function ProgramDetailPage(
         {program.coverImage ? (
           <Image
             src={urlFor(program.coverImage).width(1600).height(800).url()}
-            alt=""
+            alt={program.title}
             fill
             className="object-cover"
             priority

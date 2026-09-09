@@ -1,6 +1,7 @@
 import { client } from "./client";
 import {
   EVENT_BY_SLUG_QUERY,
+  EVENT_SITEMAP_QUERY,
   EVENT_SLUGS_QUERY,
   EVENTS_QUERY,
   FEATURED_PROGRAMS_QUERY,
@@ -9,10 +10,12 @@ import {
   IMPACT_METRICS_QUERY,
   LEADERSHIP_QUERY,
   PROGRAM_BY_SLUG_QUERY,
+  PROGRAM_SITEMAP_QUERY,
   PROGRAM_SLUGS_QUERY,
   PROGRAMS_QUERY,
   STORIES_QUERY,
   STORY_BY_SLUG_QUERY,
+  STORY_SITEMAP_QUERY,
   STORY_SLUGS_QUERY,
   UPCOMING_EVENTS_QUERY,
 } from "./queries";
@@ -46,6 +49,10 @@ export function getProgramSlugs() {
   return fetch<string[]>(PROGRAM_SLUGS_QUERY);
 }
 
+export function getProgramSitemapEntries() {
+  return fetch<{ slug: string; updatedAt: string }[]>(PROGRAM_SITEMAP_QUERY);
+}
+
 export function getProgramBySlug(slug: string) {
   return fetch<SanityProgram | null>(PROGRAM_BY_SLUG_QUERY, { slug });
 }
@@ -62,6 +69,10 @@ export function getEventSlugs() {
   return fetch<string[]>(EVENT_SLUGS_QUERY);
 }
 
+export function getEventSitemapEntries() {
+  return fetch<{ slug: string; updatedAt: string }[]>(EVENT_SITEMAP_QUERY);
+}
+
 export function getEventBySlug(slug: string) {
   return fetch<SanityEvent | null>(EVENT_BY_SLUG_QUERY, { slug });
 }
@@ -76,6 +87,10 @@ export function getFeaturedStories() {
 
 export function getStorySlugs() {
   return fetch<string[]>(STORY_SLUGS_QUERY);
+}
+
+export function getStorySitemapEntries() {
+  return fetch<{ slug: string; updatedAt: string }[]>(STORY_SITEMAP_QUERY);
 }
 
 export function getStoryBySlug(slug: string) {

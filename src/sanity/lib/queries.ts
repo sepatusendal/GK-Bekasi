@@ -17,6 +17,7 @@ const programFields = groq`
 export const PROGRAMS_QUERY = groq`*[_type == "program"] | order(_createdAt asc) { ${programFields} }`;
 export const FEATURED_PROGRAMS_QUERY = groq`*[_type == "program" && featured == true] | order(_createdAt asc) { ${programFields} }`;
 export const PROGRAM_SLUGS_QUERY = groq`*[_type == "program"].slug.current`;
+export const PROGRAM_SITEMAP_QUERY = groq`*[_type == "program"] { "slug": slug.current, "updatedAt": _updatedAt }`;
 export const PROGRAM_BY_SLUG_QUERY = groq`*[_type == "program" && slug.current == $slug][0] { ${programFields} }`;
 
 const eventFields = groq`
@@ -45,6 +46,7 @@ const eventFields = groq`
 export const EVENTS_QUERY = groq`*[_type == "event"] | order(date asc) { ${eventFields} }`;
 export const UPCOMING_EVENTS_QUERY = groq`*[_type == "event" && status != "completed"] | order(date asc) { ${eventFields} }`;
 export const EVENT_SLUGS_QUERY = groq`*[_type == "event"].slug.current`;
+export const EVENT_SITEMAP_QUERY = groq`*[_type == "event"] { "slug": slug.current, "updatedAt": _updatedAt }`;
 export const EVENT_BY_SLUG_QUERY = groq`*[_type == "event" && slug.current == $slug][0] { ${eventFields} }`;
 
 const storyFields = groq`
@@ -66,6 +68,7 @@ const storyFields = groq`
 export const STORIES_QUERY = groq`*[_type == "story"] | order(publishDate desc) { ${storyFields} }`;
 export const FEATURED_STORIES_QUERY = groq`*[_type == "story" && featured == true] | order(publishDate desc) { ${storyFields} }`;
 export const STORY_SLUGS_QUERY = groq`*[_type == "story"].slug.current`;
+export const STORY_SITEMAP_QUERY = groq`*[_type == "story"] { "slug": slug.current, "updatedAt": _updatedAt }`;
 export const STORY_BY_SLUG_QUERY = groq`*[_type == "story" && slug.current == $slug][0] { ${storyFields} }`;
 
 export const GALLERY_QUERY = groq`*[_type == "galleryItem"] | order(_createdAt desc) {

@@ -68,7 +68,7 @@ export default async function StoryDetailPage(
         {story.coverImage ? (
           <Image
             src={urlFor(story.coverImage).width(1600).height(800).url()}
-            alt=""
+            alt={story.title}
             fill
             className="object-cover"
             priority

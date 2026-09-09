@@ -43,13 +43,11 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
     siteName: siteConfig.shortName,
-    images: [{ url: "/logo-lockup.jpg", width: 1080, height: 1080 }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: ["/logo-lockup.jpg"],
   },
   icons: {
     icon: "/favicon-circle.png",

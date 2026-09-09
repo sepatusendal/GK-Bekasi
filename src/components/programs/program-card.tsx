@@ -26,7 +26,7 @@ export function ProgramCard({
         {program.coverImage ? (
           <Image
             src={urlFor(program.coverImage).width(500).height(320).url()}
-            alt=""
+            alt={program.title}
             fill
             className="object-cover"
           />

@@ -20,7 +20,7 @@ export function StoryCard({ story }: { story: SanityStory }) {
         {story.coverImage ? (
           <Image
             src={urlFor(story.coverImage).width(640).height(360).url()}
-            alt=""
+            alt={story.title}
             fill
             className="object-cover"
           />
