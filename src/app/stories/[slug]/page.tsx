@@ -76,14 +76,14 @@ export default async function StoryDetailPage(
         ) : null}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-gk-black/60 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-gk-black/95 via-gk-black/70 to-gk-black/10"
         />
         <BatikOverlay className="text-gk-white/15" />
         <Container className="relative">
           <Badge variant="white" className="mb-5 w-fit">
             {story.category}
           </Badge>
-          <h1 className="max-w-4xl font-display text-[clamp(2.5rem,7vw,5rem)] font-bold uppercase leading-[0.92] tracking-tight text-gk-white">
+          <h1 className="max-w-4xl font-display text-[clamp(2.5rem,7vw,5rem)] font-bold uppercase leading-[0.92] tracking-tight text-gk-white [text-shadow:0_2px_16px_rgba(0,0,0,0.7)]">
             {story.title}
           </h1>
         </Container>
@@ -119,7 +119,7 @@ export default async function StoryDetailPage(
 
               {story.tags && story.tags.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2 border-t border-gk-black/10 pt-6">
-                  {story.tags.map((tag) => (
+                  {[...new Set(story.tags)].map((tag) => (
                     <Badge key={tag} variant="outline">
                       {tag}
                     </Badge>
