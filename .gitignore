@@ -37,7 +37,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# claude code session state / local tool config
+# local AI assistant session state / tool config
 .claude/
 
 # typescript
