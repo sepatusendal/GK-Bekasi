@@ -5,13 +5,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertTriangle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { submitToGoogleForm } from "@/lib/forms/submit";
+import { siteConfig } from "@/lib/site";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Nama minimal 2 karakter."),
@@ -23,6 +24,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -33,8 +35,13 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: ContactFormValues) {
-    await submitToGoogleForm("contact", values);
-    setSubmitted(true);
+    try {
+      setSubmitError(false);
+      await submitToGoogleForm("contact", values);
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    }
   }
 
   if (submitted) {
@@ -104,6 +111,28 @@ export function ContactForm() {
           </p>
         ) : null}
       </div>
+
+      {submitError ? (
+        <div
+          role="alert"
+          className="flex items-start gap-3 border-2 border-gk-red bg-gk-red/10 p-4 text-sm text-gk-black"
+        >
+          <AlertTriangle className="mt-0.5 size-4 shrink-0 text-gk-red" />
+          <p>
+            Pesannya nyangkut di jalan bang, kayaknya koneksi lagi rewel.
+            Coba kirim ulang, atau langsung samperin kita di{" "}
+            <a
+              href={siteConfig.socials.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline"
+            >
+              WhatsApp
+            </a>
+            , lebih cepet nyampe.
+          </p>
+        </div>
+      ) : null}
 
       <Button type="submit" size="lg" disabled={isSubmitting} className="w-full">
         {isSubmitting ? "Mengirim..." : "Kirim Pesan"}

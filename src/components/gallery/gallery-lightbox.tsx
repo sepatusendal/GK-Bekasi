@@ -1,7 +1,7 @@
 "use client";
 // Bang Wira - github.com/sepatusendal
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -20,6 +20,19 @@ export function GalleryLightbox({ items }: { items: SanityGalleryItem[] }) {
       return (current + delta + items.length) % items.length;
     });
   };
+
+  useEffect(() => {
+    if (!open || items.length <= 1) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "ArrowLeft") goTo(-1);
+      if (event.key === "ArrowRight") goTo(1);
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, items.length]);
 
   return (
     <>
