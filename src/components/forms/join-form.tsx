@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle2, AlertTriangle } from "lucide-react";
+import { CheckCircle2, AlertTriangle, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -94,8 +94,19 @@ export function JoinForm() {
         </h3>
         <p className="max-w-md text-base text-gk-black/70">
           Tim GK Bekasi bakal hubungin kamu lewat WhatsApp atau email dalam
-          beberapa hari ke depan. Siap-siap gerak bareng.
+          beberapa hari ke depan. Sambil nunggu, langsung gabung grup WA-nya
+          biar gak ketinggalan info.
         </p>
+        <Button size="lg" className="mt-2 gap-2" asChild>
+          <a
+            href={siteConfig.socials.whatsappGroup}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="size-4" />
+            Gabung Grup WhatsApp
+          </a>
+        </Button>
       </div>
     );
   }

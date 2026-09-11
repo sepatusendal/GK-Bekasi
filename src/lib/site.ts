@@ -36,6 +36,8 @@ export const siteConfig = {
     youtube: "https://youtube.com/@gkbekasi",
     tiktok: "https://tiktok.com/@gkbekasi",
     whatsapp: "https://wa.me/6281292695096",
+    whatsappGroup:
+      "https://chat.whatsapp.com/C7BuLQRLH2c3xjjjqruBRj?s=cl&p=i&mlu=4&ilr=4",
   },
   contact: {
     email: "halo@gkbekasi.id",

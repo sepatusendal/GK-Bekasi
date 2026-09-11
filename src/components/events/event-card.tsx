@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import type { SanityEvent } from "@/sanity/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
+import { cn } from "@/lib/utils";
 
 const statusLabel: Record<SanityEvent["status"], string> = {
   "registration-open": "Register",
@@ -12,6 +13,12 @@ const statusLabel: Record<SanityEvent["status"], string> = {
 };
 
 export function EventCard({ event }: { event: SanityEvent }) {
+  const slotsLeft =
+    event.capacity > 0
+      ? Math.max(event.capacity - event.registered, 0)
+      : null;
+  const isAlmostFull = slotsLeft !== null && slotsLeft <= event.capacity * 0.2;
+
   return (
     <Link
       href={`/events/${event.slug}`}
@@ -41,6 +48,16 @@ export function EventCard({ event }: { event: SanityEvent }) {
           <p className="mt-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-gk-black/60">
             <MapPin size={13} /> {event.location} · {event.time}
           </p>
+          {event.status === "registration-open" && slotsLeft !== null ? (
+            <p
+              className={cn(
+                "mt-1 text-xs font-bold uppercase tracking-wide",
+                isAlmostFull ? "text-gk-red" : "text-gk-black/60",
+              )}
+            >
+              {slotsLeft > 0 ? `Sisa ${slotsLeft} slot` : "Slot penuh"}
+            </p>
+          ) : null}
         </div>
         <div className="relative flex items-center gap-1.5 font-display text-sm font-bold uppercase tracking-wide text-gk-red">
           {statusLabel[event.status]}
