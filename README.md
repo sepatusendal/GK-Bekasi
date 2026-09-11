@@ -1,76 +1,113 @@
-# GK Bekasi Website 🏛️
+# GK Bekasi
 
-Yo. This is the official website for GK Bekasi, built with Next.js because apparently
-we're too fancy for plain HTML now. Content lives in Sanity CMS so nobody has to touch
-code just to change a photo or fix a typo in an event description — you're welcome, future me.
+So here's the deal. This is the website for GK Bekasi, short for Garuda Keadilan
+Kabupaten Bekasi, which is definitely NOT a church even though the folder name
+in a bunch of my old notes says "GK Website" and confused literally everyone
+including past me at 2am. It's a community movement thing. People, programs,
+impact, stories, the whole deal. Built by Bang Wira, deployed by Bang Wira,
+occasionally cursed at by Bang Wira.
 
-## What's Actually In Here
+Anyway. Next.js. Because at some point I decided plain HTML and a CSS file
+called `style-final-FINAL-v2.css` was not gonna cut it anymore and I needed
+something with more moving parts to be sad about at 1am.
 
-- **Next.js 16** — App Router, doing its App Router things in `src/app`
-- **Sanity CMS** — the content brain, studio lives at `/atmint-gk` (yes that route name is
-  intentionally weird, don't @ me)
-- **Tailwind v4 + shadcn** — for making things look decent without losing a week to CSS
-- **React Hook Form + Zod** — for forms that actually validate instead of vibing
-- Pages for programs, events, stories, gallery, about, contact, join — basically the whole
-  church-website starter pack, but not a template, actually built
+## The stack, if you're into that sort of thing
 
-## Getting This Thing Running Locally
+- **Next.js 16**, App Router flavor, living its best life inside `src/app`
+- **Sanity CMS** running the content, tucked away at `/atmint-gk` which is a
+  weird route name on purpose so randos poking around don't stumble into the
+  admin panel by accident. Security through obscurity, don't tell anyone.
+- **Tailwind v4 plus shadcn** so things look put together without me manually
+  fighting flexbox for six hours like it's 2016
+- **React Hook Form and Zod** because forms that don't validate anything are
+  basically just decorative boxes and nobody needs that
+- Full set of pages: programs, events, stories, gallery, about, contact, join.
+  Basically everything an organization website needs and none of the bloat
+  it doesn't.
 
-1. Clone it, `cd` into it, do the usual:
+## Running this on your machine
+
+First, get the dependencies in. Standard stuff.
 
 ```bash
 npm install
 ```
 
-2. Copy the env example and fill in your own Sanity project deets:
+Then copy the env example so you actually have a `.env.local` to work with,
+because Sanity will yell at you otherwise and honestly it's not wrong to.
 
 ```bash
 cp .env.example .env.local
 ```
 
-You'll need:
-- `NEXT_PUBLIC_SANITY_PROJECT_ID` — from your Sanity project dashboard
-- `NEXT_PUBLIC_SANITY_DATASET` — usually just `production`, don't overthink it
-- `SANITY_API_WRITE_TOKEN` — for the seed script and write operations
-- `SANITY_REVALIDATE_SECRET` — matches whatever's set on the Sanity webhook, keep it secret keep it safe
-- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` — Google Search Console token, only needed for prod
+Fill it in with these:
 
-3. Fire it up:
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`, grab it off your Sanity project dashboard
+- `NEXT_PUBLIC_SANITY_DATASET`, almost always just `production`, don't
+  overthink this one
+- `SANITY_API_WRITE_TOKEN`, needed for the seed script and anything that
+  writes data instead of just reading it
+- `SANITY_REVALIDATE_SECRET`, has to match whatever's set on the webhook,
+  guard this like it owes you money
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, only matters in production, local
+  dev doesn't care
+
+Then just run it.
 
 ```bash
 npm run dev
 ```
 
-Go to [http://localhost:3000](http://localhost:3000) and admire your work.
+Pop open `http://localhost:3000` and there it is. Look at that. You built a
+website. Call your mom.
 
-## Other Useful Commands
+## Commands you'll actually use
 
 ```bash
-npm run build   # ship it (or at least try to)
-npm run start   # run the production build locally
-npm run lint    # find out how many mistakes you made
-npm run seed    # seed Sanity with starter data, uses scripts/seed-sanity.ts
+npm run build   # the moment of truth, will it even build
+npm run start   # runs the production build so you can pretend you're deployed
+npm run lint    # eslint gently reminding you that you are, in fact, human
+npm run seed    # dumps starter content into Sanity, see scripts/seed-sanity.ts
 ```
 
-## Content Editing (a.k.a. Sanity Studio)
+## Editing content without touching code
 
-Run the dev server, then hit `/atmint-gk` — that's the embedded Sanity Studio where
-non-devs can edit programs, events, stories, gallery, and leadership info without
-touching a single line of TypeScript. Bless.
+Spin up the dev server, go to `/atmint-gk`, and boom, that's the Sanity Studio
+living right inside the app. Programs, events, stories, gallery photos,
+leadership bios, all editable by a real human being who does not know what
+TypeScript is and honestly does not need to. This is the whole point of
+having a CMS instead of hardcoding everything like some kind of animal.
 
-## Deployment
+## Where it lives
 
-Lives on Vercel: [gk-bekasi.vercel.app](https://gk-bekasi.vercel.app). Push to `master`,
-Vercel does its magic, done. No manual FTP nonsense here, this ain't 2009.
+Deployed on Vercel, sitting pretty at
+[gk-bekasi.vercel.app](https://gk-bekasi.vercel.app). Push to `master` and
+Vercel just handles it, no FTP, no dragging files into a server through
+FileZilla at 3am praying nothing breaks. We've evolved as a species.
 
-## A Word on Structure
+## How the folders are laid out
 
 ```
 src/
-  app/          # routes — programs, events, stories, gallery, about, contact, join
-  components/   # UI pieces, organized by feature so it doesn't turn into spaghetti
-  lib/          # data helpers, form logic, misc utilities
-  sanity/       # schema types + studio config
+  app/          routes: programs, events, stories, gallery, about, contact, join
+  components/   UI stuff, split up by feature so it doesn't turn into one
+                giant unreadable file that only makes sense to past me
+  lib/          data helpers, form logic, random utilities that didn't have
+                anywhere better to live
+  sanity/       schema types and studio config, the brains of the operation
 ```
 
-That's it. Don't overthink it, just build.
+## A few honest notes
+
+This repo got rebuilt from scratch at one point because GitHub's contributor
+graph decided to hallucinate a contributor that never actually made a single
+commit, and rather than fight a caching bug I just nuked the whole repo and
+started clean. Sometimes the fastest fix is violence. If you're reading this
+and wondering why the commit history looks suspiciously short for a site
+with this many features, that's why. Nothing was lost, just history.
+
+If something looks weird in the code, it's probably intentional and there's
+a reason buried in a commit message somewhere. If it looks broken, it's
+probably just broken, open an issue or hit me up.
+
+That's the whole tour. Go build something.
