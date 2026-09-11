@@ -1,11 +1,14 @@
 # GK Bekasi
 
-So here's the deal. This is the website for GK Bekasi, short for Garuda Keadilan
-Kabupaten Bekasi, which is definitely NOT a church even though the folder name
-in a bunch of my old notes says "GK Website" and confused literally everyone
-including past me at 2am. It's a community movement thing. People, programs,
-impact, stories, the whole deal. Built by Bang Wira, deployed by Bang Wira,
-occasionally cursed at by Bang Wira.
+So here's the deal. GK stands for Garuda Keadilan, a movement organization
+that's structured like a chain of command: GK Pusat at the top, then GK
+Wilayah covering a region, then GK Daerah running things at the district
+level. This site is for GK Daerah Kabupaten Bekasi specifically, which sits
+under the Jawa Barat wilayah. My old local folder was just named "GK
+Website" out of laziness and it has confused exactly zero people except me,
+just now, writing this sentence. People, programs, impact, stories, the
+whole deal. Built by Bang Wira, deployed by Bang Wira, occasionally cursed
+at by Bang Wira.
 
 Anyway. Next.js. Because at some point I decided plain HTML and a CSS file
 called `style-final-FINAL-v2.css` was not gonna cut it anymore and I needed
