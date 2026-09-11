@@ -33,12 +33,12 @@ export default function GlobalError({
           OOPS
         </span>
         <h1 style={{ fontSize: "1.5rem", fontWeight: 700, textTransform: "uppercase" }}>
-          Waduh, seluruh situsnya lagi ngambek bareng-bareng
+          Waduh, seluruh situsnya lagi down nih bangg, maap dah yakk
         </h1>
         <p style={{ maxWidth: "28rem", opacity: 0.7 }}>
-          Ini errornya lumayan niat sampai semua halaman ikut kena
-          imbasnya. Muat ulang dulu ya bang, mudah-mudahan abis ini
-          udah baikan.
+          Ini errornya lumayan niat bangg, sampai semua halaman ikut kena
+          imbasnya. Ripres dulu ya bang, mudah-mudahan abis ini
+          udah baikan, hehe.
         </p>
         <button
           type="button"

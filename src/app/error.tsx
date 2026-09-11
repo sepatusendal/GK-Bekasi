@@ -27,7 +27,7 @@ export default function Error({
       </h1>
       <p className="max-w-md text-gk-black/70">
         Bukan salah ente kok, sumpah. Ada sesuatu yang nyangkut pas nyoba
-        muat halaman ini. Pencet coba lagi, kalau masih ngambek juga ya
+        muat halaman ini. Pencet coba lagi, kalau masih gabisa juga ya
         udah, cabut dulu ke beranda, ntar balik lagi kalau udah baikan.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
