@@ -14,9 +14,10 @@ something with more moving parts to be sad about at 1am.
 ## The stack, if you're into that sort of thing
 
 - **Next.js 16**, App Router flavor, living its best life inside `src/app`
-- **Sanity CMS** running the content, tucked away at `/atmint-gk` which is a
-  weird route name on purpose so randos poking around don't stumble into the
-  admin panel by accident. Security through obscurity, don't tell anyone.
+- A headless CMS running the content, tucked away at a route name that is
+  intentionally weird so randos poking around don't stumble into the admin
+  panel by accident. Security through obscurity, and no I'm not putting the
+  actual path in a public README, what do you take me for.
 - **Tailwind v4 plus shadcn** so things look put together without me manually
   fighting flexbox for six hours like it's 2016
 - **React Hook Form and Zod** because forms that don't validate anything are
@@ -34,7 +35,7 @@ npm install
 ```
 
 Then copy the env example so you actually have a `.env.local` to work with,
-because Sanity will yell at you otherwise and honestly it's not wrong to.
+because the CMS will yell at you otherwise and honestly it's not wrong to.
 
 ```bash
 cp .env.example .env.local
@@ -42,13 +43,12 @@ cp .env.example .env.local
 
 Fill it in with these:
 
-- `NEXT_PUBLIC_SANITY_PROJECT_ID`, grab it off your Sanity project dashboard
-- `NEXT_PUBLIC_SANITY_DATASET`, almost always just `production`, don't
-  overthink this one
-- `SANITY_API_WRITE_TOKEN`, needed for the seed script and anything that
-  writes data instead of just reading it
-- `SANITY_REVALIDATE_SECRET`, has to match whatever's set on the webhook,
-  guard this like it owes you money
+- your CMS project id, grab it off your project dashboard
+- your CMS dataset, almost always just `production`, don't overthink this one
+- a write token, needed for the seed script and anything that writes data
+  instead of just reading it
+- a revalidate secret, has to match whatever's set on the webhook, guard
+  this like it owes you money
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, only matters in production, local
   dev doesn't care
 
@@ -67,16 +67,18 @@ website. Call your mom.
 npm run build   # the moment of truth, will it even build
 npm run start   # runs the production build so you can pretend you're deployed
 npm run lint    # eslint gently reminding you that you are, in fact, human
-npm run seed    # dumps starter content into Sanity, see scripts/seed-sanity.ts
+npm run seed    # dumps starter content into the CMS, see scripts/ for the script
 ```
 
 ## Editing content without touching code
 
-Spin up the dev server, go to `/atmint-gk`, and boom, that's the Sanity Studio
-living right inside the app. Programs, events, stories, gallery photos,
-leadership bios, all editable by a real human being who does not know what
-TypeScript is and honestly does not need to. This is the whole point of
-having a CMS instead of hardcoding everything like some kind of animal.
+There's a studio living right inside the app at that weird route I'm not
+writing down here. Programs, events, stories, gallery photos, leadership
+bios, all editable by a real human being who does not know what TypeScript
+is and honestly does not need to. This is the whole point of having a CMS
+instead of hardcoding everything like some kind of animal. Ask me for the
+path if you actually need it, I'm not putting it in a file the entire
+internet can read.
 
 ## Where it lives
 
@@ -94,7 +96,8 @@ src/
                 giant unreadable file that only makes sense to past me
   lib/          data helpers, form logic, random utilities that didn't have
                 anywhere better to live
-  sanity/       schema types and studio config, the brains of the operation
+  sanity/       schema types and studio config, the CMS brains, don't poke
+                around in here unless you know what you're doing
 ```
 
 ## A few honest notes
