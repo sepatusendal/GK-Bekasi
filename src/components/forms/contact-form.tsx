@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { submitToGoogleForm } from "@/lib/forms/submit";
 import { siteConfig } from "@/lib/site";
+import { celebrate } from "@/lib/confetti";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Nama minimal 2 karakter."),
@@ -47,6 +48,7 @@ export function ContactForm() {
       setSubmitError(false);
       await submitToGoogleForm("contact", values);
       setSubmitted(true);
+      celebrate();
     } catch {
       setSubmitError(true);
     }

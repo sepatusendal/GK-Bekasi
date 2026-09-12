@@ -1,19 +1,33 @@
 "use client";
 // Bang Wira - github.com/sepatusendal
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle2, AlertTriangle, MessageCircle } from "lucide-react";
+import {
+  CheckCircle2,
+  AlertTriangle,
+  MessageCircle,
+  Download,
+  Share2,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { MemberCard, type MemberCardData } from "@/components/forms/member-card";
 import { submitToGoogleForm } from "@/lib/forms/submit";
 import { siteConfig } from "@/lib/site";
+import { celebrate } from "@/lib/confetti";
+
+function generateMemberCode() {
+  const year = new Date().getFullYear();
+  const digits = Math.floor(1000 + Math.random() * 9000);
+  return `GKB-${year}-${digits}`;
+}
 
 const INTEREST_OPTIONS = [
   "Social Impact",
@@ -55,6 +69,9 @@ type JoinFormValues = z.infer<typeof joinSchema>;
 export function JoinForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [memberData, setMemberData] = useState<MemberCardData | null>(null);
+  const [downloading, setDownloading] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const {
     register,
     handleSubmit,
@@ -75,24 +92,70 @@ export function JoinForm() {
     },
   });
 
+  function buildMemberCard(values: JoinFormValues): MemberCardData {
+    return {
+      name: values.name,
+      kecamatan: values.kecamatan,
+      interests: values.interests,
+      memberCode: generateMemberCode(),
+      joinDate: new Date().toISOString(),
+    };
+  }
+
   async function onSubmit(values: JoinFormValues) {
     if (values.company) {
       // Honeypot tripped — pretend it worked so the bot moves on.
+      setMemberData(buildMemberCard(values));
       setSubmitted(true);
       return;
     }
     try {
       setSubmitError(false);
       await submitToGoogleForm("join", values);
+      setMemberData(buildMemberCard(values));
       setSubmitted(true);
+      celebrate();
     } catch {
       setSubmitError(true);
     }
   }
 
-  if (submitted) {
+  async function handleDownload() {
+    if (!cardRef.current) return;
+    setDownloading(true);
+    try {
+      const { toPng } = await import("html-to-image");
+      const dataUrl = await toPng(cardRef.current, { pixelRatio: 2 });
+
+      if (navigator.canShare?.({ files: [] })) {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], "kartu-anggota-gk-bekasi.png", {
+          type: "image/png",
+        });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: "Kartu Anggota GK Bekasi",
+            text: "Gue resmi jadi bagian dari GK Bekasi!",
+          });
+          return;
+        }
+      }
+
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = "kartu-anggota-gk-bekasi.png";
+      link.click();
+    } catch {
+      // Silently ignore — the card is still visible on screen either way.
+    } finally {
+      setDownloading(false);
+    }
+  }
+
+  if (submitted && memberData) {
     return (
-      <div className="flex flex-col items-center gap-5 py-12 text-center">
+      <div className="flex flex-col items-center gap-6 py-8 text-center">
         <Badge variant="red" className="text-sm">
           <CheckCircle2 className="size-4" />
           Terkirim
@@ -102,19 +165,37 @@ export function JoinForm() {
         </h3>
         <p className="max-w-md text-base text-gk-black/70">
           Tim GK Bekasi bakal hubungin kamu lewat WhatsApp atau email dalam
-          beberapa hari ke depan. Sambil nunggu, langsung gabung grup WA-nya
-          biar gak ketinggalan info.
+          beberapa hari ke depan. Sambil nunggu, ini kartu anggota digital
+          lo, share ke story biar makin banyak yang gerak bareng.
         </p>
-        <Button size="lg" className="mt-2 gap-2" asChild>
-          <a
-            href={siteConfig.socials.whatsappGroup}
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <MemberCard ref={cardRef} data={memberData} />
+
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button
+            size="lg"
+            className="gap-2"
+            onClick={handleDownload}
+            disabled={downloading}
           >
-            <MessageCircle className="size-4" />
-            Gabung Grup WhatsApp
-          </a>
-        </Button>
+            {typeof navigator !== "undefined" && "share" in navigator ? (
+              <Share2 className="size-4" />
+            ) : (
+              <Download className="size-4" />
+            )}
+            {downloading ? "Menyiapkan..." : "Simpan Kartu Anggota"}
+          </Button>
+          <Button size="lg" variant="outline" className="gap-2" asChild>
+            <a
+              href={siteConfig.socials.whatsappGroup}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="size-4" />
+              Gabung Grup WhatsApp
+            </a>
+          </Button>
+        </div>
       </div>
     );
   }
