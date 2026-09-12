@@ -45,6 +45,9 @@ const joinSchema = z.object({
     .string()
     .trim()
     .min(20, "Ceritain sedikit lagi ya, minimal 20 karakter."),
+  // Honeypot: real users never see or fill this field, bots that
+  // auto-fill every input do. Caught silently — no error shown.
+  company: z.string().optional(),
 });
 
 type JoinFormValues = z.infer<typeof joinSchema>;
@@ -68,10 +71,16 @@ export function JoinForm() {
       skill: "",
       instagram: "",
       reason: "",
+      company: "",
     },
   });
 
   async function onSubmit(values: JoinFormValues) {
+    if (values.company) {
+      // Honeypot tripped — pretend it worked so the bot moves on.
+      setSubmitted(true);
+      return;
+    }
     try {
       setSubmitError(false);
       await submitToGoogleForm("join", values);
@@ -112,6 +121,15 @@ export function JoinForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+        {...register("company")}
+      />
+
       <Field label="Nama Lengkap" htmlFor="name" error={errors.name?.message}>
         <Input
           id="name"

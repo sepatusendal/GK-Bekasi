@@ -245,7 +245,8 @@
     box-shadow 150ms ease;
 }
 
-.brutal-hover:hover {
+.brutal-hover:hover,
+.brutal-hover:focus-visible {
   transform: translate(-2px, -2px);
   box-shadow: 8px 8px 0 0 var(--gk-black);
 }

@@ -67,26 +67,3 @@ export function ColorSwatch({ className, ...props }: HTMLAttributes<HTMLDivEleme
     </div>
   );
 }
-
-export function MonasSkyline(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 420 220"
-      fill="none"
-      preserveAspectRatio="xMinYMax slice"
-      aria-hidden
-      {...props}
-    >
-      <rect x="0" y="150" width="60" height="70" fill="var(--gk-black)" />
-      <rect x="55" y="120" width="45" height="100" fill="var(--gk-red)" />
-      <rect x="95" y="160" width="40" height="60" fill="var(--gk-black)" />
-      <rect x="290" y="140" width="50" height="80" fill="var(--gk-black)" />
-      <rect x="335" y="165" width="40" height="55" fill="var(--gk-red)" />
-      <rect x="370" y="130" width="50" height="90" fill="var(--gk-black)" />
-      <rect x="185" y="70" width="14" height="130" fill="var(--gk-black)" />
-      <rect x="150" y="195" width="120" height="25" fill="var(--gk-black)" />
-      <path d="M178 70 L192 20 L206 70 Z" fill="var(--gk-red)" />
-      <circle cx="192" cy="16" r="6" fill="var(--gk-mustard)" />
-    </svg>
-  );
-}

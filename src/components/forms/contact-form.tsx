@@ -18,6 +18,9 @@ const contactSchema = z.object({
   name: z.string().trim().min(2, "Nama minimal 2 karakter."),
   email: z.string().trim().min(1, "Email wajib diisi.").email("Format email tidak valid."),
   message: z.string().trim().min(10, "Pesan minimal 10 karakter."),
+  // Honeypot: real users never see or fill this field, bots that
+  // auto-fill every input do. Caught silently — no error shown.
+  company: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -31,10 +34,15 @@ export function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", message: "" },
+    defaultValues: { name: "", email: "", message: "", company: "" },
   });
 
   async function onSubmit(values: ContactFormValues) {
+    if (values.company) {
+      // Honeypot tripped — pretend it worked so the bot moves on.
+      setSubmitted(true);
+      return;
+    }
     try {
       setSubmitError(false);
       await submitToGoogleForm("contact", values);
@@ -63,6 +71,15 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
+      <input
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+        {...register("company")}
+      />
+
       <div className="flex flex-col gap-2">
         <Label htmlFor="contact-name">Nama</Label>
         <Input
