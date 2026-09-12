@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { Timeline, type TimelineMilestone } from "@/components/about/timeline";
+import { CommitmentWall } from "@/components/about/commitment-wall";
 import { BatikOverlay } from "@/components/ui/batik-pattern";
-import { getLeadership } from "@/sanity/lib/fetchers";
+import { getLeadership, getPledgeCount, getPledges } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -125,7 +126,11 @@ function TeamConnector({ branches }: { branches: number }) {
 }
 
 export default async function AboutPage() {
+  // Sequential, not Promise.all: concurrent client.fetch() calls hang under
+  // Next 16 + Turbopack dev (see note in sanity/lib/fetchers.ts).
   const leadership = await getLeadership();
+  const pledges = await getPledges();
+  const pledgeCount = await getPledgeCount();
   const [leader, ...rest] = leadership;
   const numberedRest = rest.map((member, index) => ({ ...member, number: index + 2 }));
   const teamRows = chunk(numberedRest, 2);
@@ -371,6 +376,15 @@ export default async function AboutPage() {
           <div className="mt-16 lg:mt-20">
             <Timeline items={milestones} />
           </div>
+        </Container>
+      </section>
+
+      {/* Commitment Wall */}
+      <section className="py-16 sm:py-20 lg:py-28">
+        <Container>
+          <Reveal>
+            <CommitmentWall initialPledges={pledges} initialCount={pledgeCount} />
+          </Reveal>
         </Container>
       </section>
 

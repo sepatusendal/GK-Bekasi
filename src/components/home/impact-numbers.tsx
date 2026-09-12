@@ -2,12 +2,17 @@
 import { Container } from "@/components/ui/container";
 import { CountUp } from "@/components/ui/count-up";
 import { Reveal } from "@/components/ui/reveal";
+import { DenyutBekasi } from "@/components/home/denyut-bekasi";
 import type { SanityImpactMetric } from "@/sanity/lib/types";
 
 export function ImpactNumbers({ metrics }: { metrics: SanityImpactMetric[] }) {
   return (
-    <section className="border-b-[2.5px] border-gk-black bg-gk-black py-16 text-gk-white sm:py-20">
-      <Container>
+    <section className="relative overflow-hidden border-b-[2.5px] border-gk-black bg-gk-black py-16 text-gk-white sm:py-20">
+      <DenyutBekasi className="opacity-80" />
+      <Container className="relative">
+        <span className="mb-6 block font-display text-[10px] font-bold uppercase tracking-[0.3em] text-gk-white/40">
+          Denyut Gerakan
+        </span>
         <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-4">
           {metrics.map((metric, index) => (
             <Reveal key={metric._id} delay={index * 0.08}>

@@ -87,3 +87,10 @@ export interface SanityLeadershipMember {
   initials: string;
   color: string;
 }
+
+export interface SanityPledge {
+  _id: string;
+  name: string;
+  kecamatan: string | null;
+  _createdAt: string;
+}

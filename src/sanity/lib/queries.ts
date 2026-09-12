@@ -100,3 +100,12 @@ export const LEADERSHIP_QUERY = groq`*[_type == "leadershipMember"] | order(coal
   initials,
   color
 }`;
+
+export const PLEDGES_QUERY = groq`*[_type == "pledge"] | order(_createdAt desc) [0...60] {
+  _id,
+  name,
+  kecamatan,
+  _createdAt
+}`;
+
+export const PLEDGE_COUNT_QUERY = groq`count(*[_type == "pledge"])`;

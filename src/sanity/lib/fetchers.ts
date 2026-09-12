@@ -9,6 +9,8 @@ import {
   GALLERY_QUERY,
   IMPACT_METRICS_QUERY,
   LEADERSHIP_QUERY,
+  PLEDGES_QUERY,
+  PLEDGE_COUNT_QUERY,
   PROGRAM_BY_SLUG_QUERY,
   PROGRAM_SITEMAP_QUERY,
   PROGRAM_SLUGS_QUERY,
@@ -24,6 +26,7 @@ import type {
   SanityGalleryItem,
   SanityImpactMetric,
   SanityLeadershipMember,
+  SanityPledge,
   SanityProgram,
   SanityStory,
 } from "./types";
@@ -107,4 +110,12 @@ export function getImpactMetrics() {
 
 export function getLeadership() {
   return fetch<SanityLeadershipMember[]>(LEADERSHIP_QUERY);
+}
+
+export function getPledges() {
+  return fetch<SanityPledge[]>(PLEDGES_QUERY);
+}
+
+export function getPledgeCount() {
+  return fetch<number>(PLEDGE_COUNT_QUERY);
 }
