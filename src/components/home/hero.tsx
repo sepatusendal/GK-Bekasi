@@ -15,6 +15,7 @@ import {
   ColorSwatch,
 } from "@/components/home/hero-decor";
 import { ArtworkTilt } from "@/components/home/hero-artwork-frame";
+import { TimeGreeting } from "@/components/home/time-greeting";
 
 export function Hero() {
   return (
@@ -41,9 +42,10 @@ export function Hero() {
               <span className="h-2 w-2 bg-gk-red" />
               Garuda Keadilan Kabupaten Bekasi
             </span>
-            <p className="mb-4 text-sm italic text-gk-black/45">
+            <p className="mb-1 text-sm italic text-gk-black/45">
               &ldquo;{siteConfig.slogan}&rdquo;
             </p>
+            <TimeGreeting className="mb-4" />
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="font-display text-[clamp(2.75rem,5.6vw,4.25rem)] font-bold uppercase leading-[0.9] tracking-tight text-gk-black">

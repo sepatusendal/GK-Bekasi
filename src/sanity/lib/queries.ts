@@ -109,3 +109,13 @@ export const PLEDGES_QUERY = groq`*[_type == "pledge"] | order(_createdAt desc) 
 }`;
 
 export const PLEDGE_COUNT_QUERY = groq`count(*[_type == "pledge"])`;
+
+export const ACTIVE_POLL_QUERY = groq`*[_type == "poll" && isActive == true] | order(_createdAt desc) [0] {
+  _id,
+  question,
+  options[] {
+    _key,
+    label,
+    "votes": coalesce(votes, 0)
+  }
+}`;

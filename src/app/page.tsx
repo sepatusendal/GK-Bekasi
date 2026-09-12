@@ -7,7 +7,11 @@ import { UpcomingEvents } from "@/components/home/upcoming-events";
 import { ImpactStory } from "@/components/home/impact-story";
 import { StoriesTeaser } from "@/components/home/stories-teaser";
 import { CommunityCTA } from "@/components/home/community-cta";
+import { CommunityPoll } from "@/components/home/community-poll";
+import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import {
+  getActivePoll,
   getFeaturedPrograms,
   getFeaturedStories,
   getImpactMetrics,
@@ -22,6 +26,7 @@ export default async function Home() {
   // once here and passing data down also avoids sibling Server Components
   // each firing their own concurrent fetch during render.
   const impactMetrics = await getImpactMetrics();
+  const poll = await getActivePoll();
   const programs = await getFeaturedPrograms();
   const events = (await getUpcomingEvents()).slice(0, 3);
   const stories = (await getFeaturedStories()).slice(0, 3);
@@ -31,6 +36,15 @@ export default async function Home() {
       <Hero />
       <ImpactNumbers metrics={impactMetrics} />
       <WhatMovesUs />
+      {poll ? (
+        <section className="py-16 sm:py-20 lg:py-24">
+          <Container>
+            <Reveal>
+              <CommunityPoll initialPoll={poll} />
+            </Reveal>
+          </Container>
+        </section>
+      ) : null}
       <StoriesTeaser stories={stories} />
       <FeaturedPrograms programs={programs} />
       <UpcomingEvents events={events} />

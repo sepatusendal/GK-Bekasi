@@ -94,3 +94,15 @@ export interface SanityPledge {
   kecamatan: string | null;
   _createdAt: string;
 }
+
+export interface SanityPollOption {
+  _key: string;
+  label: string;
+  votes: number;
+}
+
+export interface SanityPoll {
+  _id: string;
+  question: string;
+  options: SanityPollOption[];
+}

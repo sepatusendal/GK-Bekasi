@@ -6,6 +6,7 @@ import {
   EVENTS_QUERY,
   FEATURED_PROGRAMS_QUERY,
   FEATURED_STORIES_QUERY,
+  ACTIVE_POLL_QUERY,
   GALLERY_QUERY,
   IMPACT_METRICS_QUERY,
   LEADERSHIP_QUERY,
@@ -27,6 +28,7 @@ import type {
   SanityImpactMetric,
   SanityLeadershipMember,
   SanityPledge,
+  SanityPoll,
   SanityProgram,
   SanityStory,
 } from "./types";
@@ -118,4 +120,8 @@ export function getPledges() {
 
 export function getPledgeCount() {
   return fetch<number>(PLEDGE_COUNT_QUERY);
+}
+
+export function getActivePoll() {
+  return fetch<SanityPoll | null>(ACTIVE_POLL_QUERY);
 }
