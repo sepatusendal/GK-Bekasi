@@ -22,6 +22,7 @@ export function StoryCard({ story }: { story: SanityStory }) {
             src={urlFor(story.coverImage).width(640).height(360).url()}
             alt={story.title}
             fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover"
           />
         ) : (

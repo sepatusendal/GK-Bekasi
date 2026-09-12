@@ -74,6 +74,7 @@ export default async function EventDetailPage(
             src={urlFor(event.coverImage).width(1600).height(800).url()}
             alt={event.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

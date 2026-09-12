@@ -194,6 +194,7 @@ export default async function AboutPage() {
                         src={urlFor(leader.photo).width(512).height(640).url()}
                         alt={leader.name}
                         fill
+                        sizes="(min-width: 640px) 256px, 100vw"
                         className="object-cover"
                       />
                     </div>
@@ -253,6 +254,7 @@ export default async function AboutPage() {
                               src={urlFor(member.photo).width(480).height(480).url()}
                               alt={member.name}
                               fill
+                              sizes="(min-width: 640px) 50vw, 100vw"
                               className="object-cover"
                             />
                           </div>
