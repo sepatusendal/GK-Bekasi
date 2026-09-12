@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
 import { Timeline, type TimelineMilestone } from "@/components/about/timeline";
+import { BatikOverlay } from "@/components/ui/batik-pattern";
 import { getLeadership } from "@/sanity/lib/fetchers";
 import { urlFor } from "@/sanity/lib/image";
 import { siteConfig } from "@/lib/site";
@@ -64,30 +65,36 @@ const milestones: TimelineMilestone[] = [
     title: "Ketua Umum Baru Dilantik",
     description:
       "Pelantikan Ketua Umum Garuda Keadilan Kabupaten Bekasi periode baru jadi titik awal babak ini. Dari sini, kepengurusan mulai ngebut bangun ulang gerakan dari nol.",
+    icon: "flag",
   },
   {
     year: "2025",
     title: "Gerak Cepat, Bangun Jejaring",
     description:
       "Di tahun pertama, GK Kabupaten Bekasi hadir di Musyawarah Wilayah GK Jawa Barat, ikut Rakerda PKS Kabupaten Bekasi lewat refleksi kemanusiaan untuk korban bencana Sumatera, sampai luncurin podcast perdana sebagai ruang aman buat anak muda.",
+    icon: "network",
   },
   {
     year: "2026",
     title: "Digital Movement",
     description:
       "GK Kabupaten Bekasi masuk ke ranah digital lewat gkbekasi.id, biar cerita, program, dan ajakan gabung bisa dijangkau lebih banyak anak muda lagi.",
+    icon: "broadcast",
+    current: true,
   },
   {
     year: "2027-2029",
     title: "Ekspansi ke Seluruh Kecamatan",
     description:
       "Target perluasan jejaring dan program ke lebih banyak kecamatan di Kabupaten Bekasi, dengan makin banyak anak muda ambil peran sebagai kader dan volunteer.",
+    icon: "map",
   },
   {
     year: "2030",
     title: "Visi 2030",
     description:
       "GK Kabupaten Bekasi jadi rumah pertumbuhan anak muda terbesar di Kabupaten Bekasi, ruang belajar, gerak, dan berkontribusi yang bisa diakses semua kalangan.",
+    icon: "target",
   },
 ];
 
@@ -349,16 +356,17 @@ export default async function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 sm:py-20 lg:py-28">
-        <Container>
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
+        <BatikOverlay className="inset-x-0 top-0 h-[560px] text-gk-black/[0.035]" />
+        <Container className="relative">
           <Reveal>
             <SectionHeader
               eyebrow="Perjalanan"
-              title="Timeline"
-              description="Sedikit cerita gimana GK Bekasi mulai dan terus berkembang sampai sekarang."
+              title="The Journey So Far"
+              description="Dari pelantikan sampai rencana lima tahun ke depan, ini rute yang udah dan lagi kami tempuh. Scroll pelan-pelan, garisnya jalan bareng lo."
             />
           </Reveal>
-          <div className="mt-12">
+          <div className="mt-16 lg:mt-20">
             <Timeline items={milestones} />
           </div>
         </Container>
