@@ -13,6 +13,8 @@ const PATH_BY_TYPE: Record<string, string[]> = {
   galleryItem: ["/gallery"],
   impactMetric: ["/"],
   leadershipMember: ["/about"],
+  poll: ["/"],
+  pledge: ["/about"],
 };
 
 export async function POST(req: NextRequest) {
