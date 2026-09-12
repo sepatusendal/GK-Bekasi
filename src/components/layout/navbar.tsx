@@ -38,12 +38,11 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
+    // Reacts to browser/back-forward navigation too, not just in-app
+    // Link clicks, so this can't be moved into a single event handler.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false);
   }, [pathname]);
-
-  useEffect(() => {
-    if (open) setHidden(false);
-  }, [open]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -104,7 +103,13 @@ export function Navbar() {
           aria-label={open ? "Tutup menu" : "Buka menu"}
           aria-expanded={open}
           className="brutal-border flex h-10 w-10 items-center justify-center bg-gk-white md:hidden"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => {
+            setOpen((v) => {
+              const next = !v;
+              if (next) setHidden(false);
+              return next;
+            });
+          }}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>

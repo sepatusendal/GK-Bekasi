@@ -27,6 +27,9 @@ export function CountUp({
     ).matches;
 
     if (reduceMotion) {
+      // matchMedia is client-only, so this can't be computed during render;
+      // the effect is the only place to learn the user's motion preference.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplay(value);
       return;
     }

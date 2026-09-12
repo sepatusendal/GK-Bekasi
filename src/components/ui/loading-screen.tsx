@@ -21,6 +21,9 @@ export function LoadingScreen() {
   const [phrase, setPhrase] = useState(PHRASES[0]);
 
   useEffect(() => {
+    // Randomized only after mount so server and client render the same
+    // initial phrase — picking it during render would mismatch on hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhrase(PHRASES[Math.floor(Math.random() * PHRASES.length)]);
   }, []);
 
