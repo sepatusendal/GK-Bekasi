@@ -8,8 +8,6 @@ import { ImpactStory } from "@/components/home/impact-story";
 import { StoriesTeaser } from "@/components/home/stories-teaser";
 import { CommunityCTA } from "@/components/home/community-cta";
 import { CommunityPoll } from "@/components/home/community-poll";
-import { Container } from "@/components/ui/container";
-import { Reveal } from "@/components/ui/reveal";
 import {
   getActivePoll,
   getFeaturedPrograms,
@@ -33,18 +31,10 @@ export default async function Home() {
 
   return (
     <>
+      <CommunityPoll initialPoll={poll} />
       <Hero />
       <ImpactNumbers metrics={impactMetrics} />
       <WhatMovesUs />
-      {poll ? (
-        <section className="py-16 sm:py-20 lg:py-24">
-          <Container>
-            <Reveal>
-              <CommunityPoll initialPoll={poll} />
-            </Reveal>
-          </Container>
-        </section>
-      ) : null}
       <StoriesTeaser stories={stories} />
       <FeaturedPrograms programs={programs} />
       <UpcomingEvents events={events} />
