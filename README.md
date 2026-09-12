@@ -139,3 +139,6 @@ three weeks.
 
 That's the whole tour. Clone it, run it, break it, fix it, repeat. Welcome
 to the team, or welcome to just being curious, either way, glad you're here.
+
+PS: if you scrolled all the way down here just to check if there's an
+easter egg, congrats, this sentence is it.
